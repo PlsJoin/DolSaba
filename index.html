@@ -24,6 +24,8 @@
   --success: #16a34a;
   --radius: 10px;
   --header-h: 60px;
+  --discord: #5865F2;
+  --discord-dark: #4752c4;
 }
 
 html { scroll-behavior: smooth; }
@@ -297,13 +299,14 @@ a:hover { color: var(--primary-dark); }
 }
 
 .btn-discord {
-  background: #5865F2;
+  background: var(--discord);
   color: #fff;
-  padding: 12px 28px;
+  padding: 14px 32px;
+  font-size: 1.05rem;
 }
 
 .btn-discord:hover {
-  background: #4752c4;
+  background: var(--discord-dark);
   color: #fff;
 }
 
@@ -331,6 +334,39 @@ a:hover { color: var(--primary-dark); }
   color: var(--text-muted);
   margin-bottom: 32px;
   font-size: 0.98rem;
+}
+
+/* Discord CTA (top priority) */
+.discord-cta {
+  background: linear-gradient(135deg, #5865F2 0%, #4752c4 100%);
+  color: #fff;
+  text-align: center;
+  padding: 48px 0;
+}
+
+.discord-cta .section-title {
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.discord-cta .section-title::after {
+  background: rgba(255,255,255,0.85);
+}
+
+.discord-cta .section-lead {
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 24px;
+}
+
+.discord-cta .btn-discord {
+  background: #fff;
+  color: var(--discord);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.discord-cta .btn-discord:hover {
+  background: #f0f0ff;
+  color: var(--discord-dark);
 }
 
 /* News */
@@ -409,127 +445,57 @@ a:hover { color: var(--primary-dark); }
   color: var(--text-muted);
 }
 
-/* Join */
-.join-section { background: var(--bg-section); }
+/* Links section (rectangular cards) */
+.links-section {
+  background: var(--bg-section);
+  padding: 64px 0;
+}
 
-.join-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px 32px;
-  max-width: 640px;
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
-.join-box h3 {
-  font-size: 1.1rem;
-  margin-bottom: 16px;
-  color: var(--primary);
-}
-
-.info-list {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 10px 14px;
-  margin-bottom: 16px;
-}
-
-.info-list dt { color: var(--text-muted); font-size: 0.9rem; }
-.info-list dd { font-weight: 500; }
-
-.info-list code {
-  background: var(--bg-section);
-  padding: 3px 10px;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.copy-btn {
-  margin-left: 8px;
-  background: var(--primary);
-  color: #fff;
-  border: none;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.78rem;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.copy-btn:hover { background: var(--primary-dark); }
-
-.note {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 10px;
-}
-
-.join-steps {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
-
-.join-steps ol {
-  padding-left: 22px;
-  margin-top: 10px;
-}
-
-.join-steps li { margin-bottom: 8px; }
-
-/* Rules */
-.rules-list {
+.link-card {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 640px;
-  margin: 0 auto 20px;
-}
-
-.rule-item {
-  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 16px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px 18px;
-  align-items: flex-start;
+  padding: 22px 24px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 
-.rule-num {
-  font-size: 1.2rem;
-  font-weight: 900;
-  color: var(--primary);
-  min-width: 32px;
+.link-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+  color: var(--text);
+  transform: translateY(-2px);
 }
 
-.rule-item h3 { font-size: 1rem; margin-bottom: 2px; }
-.rule-item p { font-size: 0.9rem; color: var(--text-muted); }
+.link-card-text h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
 
-.rules-note {
-  text-align: center;
-  color: var(--text-muted);
+.link-card-text p {
   font-size: 0.88rem;
-}
-
-/* Discord */
-.discord-section {
-  background: var(--bg-section);
-  text-align: center;
-}
-
-.discord-section .btn { margin-top: 8px; }
-
-/* Contact */
-.contact-section { text-align: center; }
-
-.contact-section p {
-  max-width: 520px;
-  margin: 0 auto 10px;
   color: var(--text-muted);
-  font-size: 0.95rem;
+}
+
+.link-card-arrow {
+  font-size: 1.4rem;
+  color: var(--primary);
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
 /* Footer */
@@ -552,6 +518,88 @@ a:hover { color: var(--primary-dark); }
   color: var(--text-muted);
 }
 
+/* Floating Discord ad (bottom-right) */
+.discord-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+  width: min(280px, calc(100vw - 32px));
+  background: var(--discord);
+  color: #fff;
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 8px 28px rgba(88, 101, 242, 0.4);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.discord-float.visible {
+  display: flex;
+}
+
+.discord-float-close {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 0;
+  line-height: 1;
+}
+
+.discord-float-close svg {
+  width: 14px;
+  height: 14px;
+  stroke: #333;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+.discord-float-close:hover {
+  background: #f1f5f9;
+}
+
+.discord-float-title {
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.3;
+  padding-right: 4px;
+}
+
+.discord-float-desc {
+  font-size: 0.82rem;
+  opacity: 0.92;
+  line-height: 1.45;
+}
+
+.discord-float-btn {
+  display: block;
+  text-align: center;
+  background: #fff;
+  color: var(--discord);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.discord-float-btn:hover {
+  background: #f0f0ff;
+  color: var(--discord-dark);
+}
+
 @media (max-width: 600px) {
   .hero { height: min(50vh, 400px); }
   .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
@@ -559,8 +607,14 @@ a:hover { color: var(--primary-dark); }
   .carousel-btn.next { right: 8px; }
   .section { padding: 48px 0; }
   .section-title { font-size: 1.35rem; }
-  .join-box { padding: 22px 18px; }
-  .info-list { grid-template-columns: 90px 1fr; }
+  .discord-cta { padding: 40px 0; }
+  .links-section { padding: 48px 0; }
+  .discord-float {
+    bottom: 14px;
+    right: 14px;
+    width: min(260px, calc(100vw - 28px));
+    padding: 16px 14px 14px;
+  }
 }
   </style>
 </head>
@@ -586,12 +640,12 @@ a:hover { color: var(--primary-dark); }
     </div>
     <ul class="side-menu-list">
       <li><a href="#hero">トップ</a></li>
+      <li><a href="#discord">Discord</a></li>
       <li><a href="#news">ニュース</a></li>
       <li><a href="#features">鯖の特徴</a></li>
-      <li><a href="#join">参加方法</a></li>
-      <li><a href="#rules">ルール</a></li>
-      <li><a href="#discord">Discord</a></li>
-      <li><a href="#contact">お問い合わせ</a></li>
+      <li><a href="join.html">参加方法を確認</a></li>
+      <li><a href="guidelines.html">利用規約 / ガイドライン</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
     </ul>
   </nav>
   <div class="menu-overlay" id="menuOverlay"></div>
@@ -605,7 +659,7 @@ a:hover { color: var(--primary-dark); }
             <p class="slide-label">Minecraft 統合版</p>
             <h1 class="slide-title">DOLDO SERVER</h1>
             <p class="slide-subtitle">【ドル鯖】参加型サバイバルサーバー</p>
-            <a href="#join" class="btn btn-primary">参加する</a>
+            <a href="#discord" class="btn btn-primary">Discordに参加</a>
           </div>
         </div>
         <div class="carousel-slide">
@@ -623,13 +677,22 @@ a:hover { color: var(--primary-dark); }
             <p class="slide-label">参加型</p>
             <h1 class="slide-title">フレンド申請で参加</h1>
             <p class="slide-subtitle">気軽に遊べるコミュニティ</p>
-            <a href="#discord" class="btn btn-primary">Discordへ</a>
+            <a href="join.html" class="btn btn-primary">参加方法を確認</a>
           </div>
         </div>
       </div>
       <button class="carousel-btn prev" id="prevBtn" aria-label="前のスライド">‹</button>
       <button class="carousel-btn next" id="nextBtn" aria-label="次のスライド">›</button>
       <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <!-- Discord 最優先 -->
+  <section class="discord-cta" id="discord">
+    <div class="container">
+      <h2 class="section-title">まずはDiscordへ</h2>
+      <p class="section-lead">情報のGET・参加・質問・報告はすべてDiscordから。コミュニティの中心です。</p>
+      <a href="https://discord.gg/Tj6RwtZYw7" class="btn btn-discord" target="_blank" rel="noopener">Discordに参加する</a>
     </div>
   </section>
 
@@ -679,86 +742,34 @@ a:hover { color: var(--primary-dark); }
     </div>
   </section>
 
-  <section class="section join-section" id="join">
+  <!-- 鯖の特徴より下：長方形リンクカード -->
+  <section class="links-section" id="links">
     <div class="container">
-      <h2 class="section-title">参加方法</h2>
-      <div class="join-box">
-        <h3>参加の流れ</h3>
-        <dl class="info-list">
-          <dt>対応</dt>
-          <dd>Minecraft 統合版（Bedrock Edition）</dd>
-          <dt>参加方法</dt>
-          <dd>フレンド申請</dd>
-          <dt>フレンドID</dt>
-          <dd>
-            <code id="friendId">Doldo BE</code>
-            <button class="copy-btn" data-copy="friendId">コピー</button>
-          </dd>
-        </dl>
-        <p class="note">ゲーム内で「Doldo BE」を検索してフレンド申請してください。</p>
-
-        <div class="join-steps">
-          <h3>手順</h3>
-          <ol>
-            <li>Discordに参加する（推奨）</li>
-            <li>ルールを確認する</li>
-            <li>ゲーム内でフレンドID「Doldo BE」を検索して申請</li>
-            <li>承認されたら一緒に遊ぶ</li>
-          </ol>
-        </div>
+      <h2 class="section-title">各種ページ</h2>
+      <p class="section-lead">参加前に確認しておいてください</p>
+      <div class="links-grid">
+        <a href="join.html" class="link-card">
+          <div class="link-card-text">
+            <h3>参加方法を確認</h3>
+            <p>フレンド申請の手順・対応端末など</p>
+          </div>
+          <span class="link-card-arrow">→</span>
+        </a>
+        <a href="guidelines.html" class="link-card">
+          <div class="link-card-text">
+            <h3>利用規約 / ガイドライン</h3>
+            <p>ルール・禁止事項・注意事項</p>
+          </div>
+          <span class="link-card-arrow">→</span>
+        </a>
+        <a href="contact.html" class="link-card">
+          <div class="link-card-text">
+            <h3>お問い合わせ</h3>
+            <p>質問・報告はこちら</p>
+          </div>
+          <span class="link-card-arrow">→</span>
+        </a>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="rules">
-    <div class="container">
-      <h2 class="section-title">基本ルール</h2>
-      <div class="rules-list">
-        <div class="rule-item">
-          <span class="rule-num">01</span>
-          <div>
-            <h3>迷惑行為禁止</h3>
-            <p>荒らし、チート、他プレイヤーへの嫌がらせは禁止です。</p>
-          </div>
-        </div>
-        <div class="rule-item">
-          <span class="rule-num">02</span>
-          <div>
-            <h3>建築への配慮</h3>
-            <p>他人の建築を壊したり、無断で改変しないでください。</p>
-          </div>
-        </div>
-        <div class="rule-item">
-          <span class="rule-num">03</span>
-          <div>
-            <h3>チャットマナー</h3>
-            <p>暴言・差別的な発言・過度な宣伝は控えてください。</p>
-          </div>
-        </div>
-        <div class="rule-item">
-          <span class="rule-num">04</span>
-          <div>
-            <h3>運営の指示に従う</h3>
-            <p>運営からの注意には従ってください。違反が続く場合は対応します。</p>
-          </div>
-        </div>
-      </div>
-      <p class="rules-note">詳細はDiscordで確認してください。</p>
-    </div>
-  </section>
-
-  <section class="section discord-section" id="discord">
-    <div class="container">
-      <h2 class="section-title">Discord</h2>
-      <p class="section-lead">コミュニティの中心はDiscordです。質問・報告・交流はこちら。</p>
-      <a href="https://discord.gg/Tj6RwtZYw7" class="btn btn-discord" target="_blank" rel="noopener">Discordに参加する</a>
-    </div>
-  </section>
-
-  <section class="section contact-section" id="contact">
-    <div class="container">
-      <h2 class="section-title">お問い合わせ</h2>
-      <p>質問・報告はDiscordの該当チャンネルへお願いします。</p>
     </div>
   </section>
 
@@ -768,6 +779,19 @@ a:hover { color: var(--primary-dark); }
       <p class="footer-copy">&copy; 2026 DOLDO SERVER 【ドル鯖】</p>
     </div>
   </footer>
+
+  <!-- 右下 Discord 誘導バナー（sessionStorage で閉じた状態を保持） -->
+  <div class="discord-float" id="discordFloat" role="complementary" aria-label="Discord参加の案内">
+    <button class="discord-float-close" id="discordFloatClose" aria-label="閉じる">
+      <svg viewBox="0 0 14 14" aria-hidden="true">
+        <line x1="2" y1="2" x2="12" y2="12"/>
+        <line x1="12" y1="2" x2="2" y2="12"/>
+      </svg>
+    </button>
+    <p class="discord-float-title">Discordに参加しよう</p>
+    <p class="discord-float-desc">最新情報のGET・参加・質問はすべてDiscordから。</p>
+    <a href="https://discord.gg/Tj6RwtZYw7" class="discord-float-btn" target="_blank" rel="noopener">今すぐ参加する</a>
+  </div>
 
   <script>
 const newsData = [
@@ -809,8 +833,8 @@ document.addEventListener("DOMContentLoaded", function() {
   renderNews();
   initMenu();
   initCarousel();
-  initCopyButtons();
   initSmoothScroll();
+  initDiscordFloat();
 });
 
 function initMenu() {
@@ -880,21 +904,6 @@ function initCarousel() {
   resetTimer();
 }
 
-function initCopyButtons() {
-  document.querySelectorAll(".copy-btn").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      var el = document.getElementById(btn.getAttribute("data-copy"));
-      if (!el) return;
-      navigator.clipboard.writeText(el.textContent.trim()).then(function() {
-        var t = btn.textContent;
-        btn.textContent = "コピー完了";
-        btn.style.background = "var(--success)";
-        setTimeout(function() { btn.textContent = t; btn.style.background = ""; }, 1400);
-      });
-    });
-  });
-}
-
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener("click", function(e) {
@@ -907,6 +916,25 @@ function initSmoothScroll() {
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     });
+  });
+}
+
+function initDiscordFloat() {
+  var floatEl = document.getElementById("discordFloat");
+  var closeBtn = document.getElementById("discordFloatClose");
+  if (!floatEl || !closeBtn) return;
+
+  // sessionStorage: 同じタブ/セッション中は閉じたまま。タブを閉じて入り直すと再表示
+  if (sessionStorage.getItem("discordFloatClosed") === "1") {
+    floatEl.classList.remove("visible");
+    return;
+  }
+
+  floatEl.classList.add("visible");
+
+  closeBtn.addEventListener("click", function() {
+    floatEl.classList.remove("visible");
+    sessionStorage.setItem("discordFloatClosed", "1");
   });
 }
   </script>

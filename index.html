@@ -15,9 +15,9 @@
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
   --accent: #f59e0b;
-  --bg: #f8fafc;
+  --bg: #ffffff;
   --bg-card: #ffffff;
-  --bg-section: #f1f5f9;
+  --bg-section: #f8fafc;
   --text: #1e293b;
   --text-muted: #64748b;
   --border: #e2e8f0;
@@ -42,7 +42,6 @@ a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--primary-dark); }
 .container { width: min(960px, 92%); margin: 0 auto; }
 
-/* Header */
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -103,7 +102,6 @@ a:hover { color: var(--primary-dark); }
   border-radius: 1px;
 }
 
-/* Side Menu */
 .side-menu {
   position: fixed;
   top: 0; right: -280px;
@@ -160,7 +158,6 @@ a:hover { color: var(--primary-dark); }
 
 .menu-overlay.open { opacity: 1; visibility: visible; }
 
-/* Hero */
 .hero {
   position: relative;
   margin-top: var(--header-h);
@@ -276,7 +273,6 @@ a:hover { color: var(--primary-dark); }
   border-radius: 4px;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   padding: 11px 24px;
@@ -310,7 +306,6 @@ a:hover { color: var(--primary-dark); }
   color: #fff;
 }
 
-/* Sections */
 .section { padding: 64px 0; }
 
 .section-title {
@@ -336,7 +331,6 @@ a:hover { color: var(--primary-dark); }
   font-size: 0.98rem;
 }
 
-/* Discord CTA (top priority) */
 .discord-cta {
   background: linear-gradient(135deg, #5865F2 0%, #4752c4 100%);
   color: #fff;
@@ -369,7 +363,6 @@ a:hover { color: var(--primary-dark); }
   color: var(--discord-dark);
 }
 
-/* News */
 .news-section { background: var(--bg-section); }
 
 .news-list {
@@ -418,34 +411,75 @@ a:hover { color: var(--primary-dark); }
   color: var(--text-muted);
 }
 
-/* Features */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+.features-section {
+  background: #fff;
+  padding: 72px 0 80px;
 }
 
-.feature-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px 20px;
+.features-section .section-title {
+  margin-bottom: 48px;
 }
 
-.feature-icon { font-size: 1.6rem; margin-bottom: 10px; }
+.features-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  max-width: 520px;
+  margin: 0 auto;
+}
 
-.feature-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 8px;
+.feature-item {
+  text-align: center;
+  width: 100%;
+}
+
+.feature-icon-box {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.feature-icon-box svg {
+  width: 32px;
+  height: 32px;
+}
+
+.feature-item h3 {
+  font-size: 1.2rem;
   font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
 }
 
-.feature-card p {
-  font-size: 0.92rem;
+.feature-item p {
+  font-size: 0.95rem;
   color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
-/* Links section (rectangular cards) */
+.feature-icon-box.blue   { border-color: #93c5fd; }
+.feature-icon-box.blue svg { stroke: #3b82f6; fill: none; }
+.feature-icon-box.green  { border-color: #86efac; }
+.feature-icon-box.green svg { stroke: #16a34a; fill: none; }
+.feature-icon-box.amber  { border-color: #fcd34d; }
+.feature-icon-box.amber svg { stroke: #d97706; fill: none; }
+.feature-icon-box.purple { border-color: #c4b5fd; }
+.feature-icon-box.purple svg { stroke: #7c3aed; fill: none; }
+.feature-icon-box.pink   { border-color: #f9a8d4; }
+.feature-icon-box.pink svg { stroke: #db2777; fill: none; }
+.feature-icon-box.sky    { border-color: #7dd3fc; }
+.feature-icon-box.sky svg { stroke: #0284c7; fill: none; }
+
 .links-section {
   background: var(--bg-section);
   padding: 64px 0;
@@ -498,7 +532,6 @@ a:hover { color: var(--primary-dark); }
   flex-shrink: 0;
 }
 
-/* Footer */
 .footer {
   background: #fff;
   border-top: 1px solid var(--border);
@@ -518,7 +551,6 @@ a:hover { color: var(--primary-dark); }
   color: var(--text-muted);
 }
 
-/* Floating Discord ad (bottom-right) */
 .discord-float {
   position: fixed;
   bottom: 20px;
@@ -530,13 +562,13 @@ a:hover { color: var(--primary-dark); }
   border-radius: 12px;
   padding: 18px 18px 16px;
   box-shadow: 0 8px 28px rgba(88, 101, 242, 0.4);
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.discord-float.visible {
-  display: flex;
+.discord-float.hidden {
+  display: none;
 }
 
 .discord-float-close {
@@ -608,6 +640,11 @@ a:hover { color: var(--primary-dark); }
   .section { padding: 48px 0; }
   .section-title { font-size: 1.35rem; }
   .discord-cta { padding: 40px 0; }
+  .features-section { padding: 56px 0 64px; }
+  .features-list { gap: 40px; }
+  .feature-icon-box { width: 64px; height: 64px; border-radius: 16px; }
+  .feature-icon-box svg { width: 28px; height: 28px; }
+  .feature-item h3 { font-size: 1.1rem; }
   .links-section { padding: 48px 0; }
   .discord-float {
     bottom: 14px;
@@ -687,7 +724,6 @@ a:hover { color: var(--primary-dark); }
     </div>
   </section>
 
-  <!-- Discord 最優先 -->
   <section class="discord-cta" id="discord">
     <div class="container">
       <h2 class="section-title">まずはDiscordへ</h2>
@@ -703,46 +739,83 @@ a:hover { color: var(--primary-dark); }
     </div>
   </section>
 
-  <section class="section" id="features">
+  <section class="features-section" id="features">
     <div class="container">
       <h2 class="section-title">この鯖の特徴</h2>
-      <p class="section-lead">DOLDO SERVER（ドル鯖）について</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🌍</div>
-          <h3>参加しやすい</h3>
-          <p>統合版対応。スマホ・Switch・Windowsなどからフレンド申請で気軽に参加できます。</p>
+      <div class="features-list">
+
+        <div class="feature-item">
+          <div class="feature-icon-box blue">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>気軽に参加できる</h3>
+          <p>統合版対応。スマホ・Switch・Windowsなどから、フレンド申請するだけで入れます。IP入力は不要です。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤝</div>
+
+        <div class="feature-item">
+          <div class="feature-icon-box green">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
           <h3>民度を大切に</h3>
-          <p>荒らしや迷惑行為を排除し、楽しく遊べる環境を維持しています。</p>
+          <p>荒らしや迷惑行為は排除しています。安心して建築・冒険・交流を楽しめる環境を維持しています。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🏗️</div>
-          <h3>建築・生活</h3>
-          <p>サバイバルをベースに、建築や街づくりを自分のペースで楽しめます。</p>
+
+        <div class="feature-item">
+          <div class="feature-icon-box amber">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <h3>建築・生活を楽しむ</h3>
+          <p>サバイバルをベースに、自分のペースで建築や街づくりができます。他人の建築への配慮を大切にしています。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">📢</div>
-          <h3>イベント</h3>
-          <p>たまにイベントや企画を実施。参加者同士の交流も大切にしています。</p>
+
+        <div class="feature-item">
+          <div class="feature-icon-box purple">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </div>
+          <h3>イベント・交流</h3>
+          <p>たまにイベントや企画を実施しています。参加者同士の交流も、鯖の大事な要素のひとつです。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🛠️</div>
-          <h3>サポート</h3>
-          <p>Discordで質問・報告を受け付けています。</p>
+
+        <div class="feature-item">
+          <div class="feature-icon-box pink">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3>困ったときはDiscordへ</h3>
+          <p>質問・報告・相談はDiscordで受け付けています。わからないことがあっても気軽に聞いてください。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎮</div>
-          <h3>参加型</h3>
-          <p>IP不要。フレンド申請するだけで参加できます。</p>
+
+        <div class="feature-item">
+          <div class="feature-icon-box sky">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>いつでも遊べる</h3>
+          <p>サーバーは常時稼働。深夜でも早朝でも、空いた時間にサクッと遊びに来てください。</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 鯖の特徴より下：長方形リンクカード -->
   <section class="links-section" id="links">
     <div class="container">
       <h2 class="section-title">各種ページ</h2>
@@ -780,7 +853,6 @@ a:hover { color: var(--primary-dark); }
     </div>
   </footer>
 
-  <!-- 右下 Discord 誘導バナー（sessionStorage で閉じた状態を保持） -->
   <div class="discord-float" id="discordFloat" role="complementary" aria-label="Discord参加の案内">
     <button class="discord-float-close" id="discordFloatClose" aria-label="閉じる">
       <svg viewBox="0 0 14 14" aria-hidden="true">
@@ -924,17 +996,8 @@ function initDiscordFloat() {
   var closeBtn = document.getElementById("discordFloatClose");
   if (!floatEl || !closeBtn) return;
 
-  // sessionStorage: 同じタブ/セッション中は閉じたまま。タブを閉じて入り直すと再表示
-  if (sessionStorage.getItem("discordFloatClosed") === "1") {
-    floatEl.classList.remove("visible");
-    return;
-  }
-
-  floatEl.classList.add("visible");
-
   closeBtn.addEventListener("click", function() {
-    floatEl.classList.remove("visible");
-    sessionStorage.setItem("discordFloatClosed", "1");
+    floatEl.classList.add("hidden");
   });
 }
   </script>

@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
@@ -26,10 +25,9 @@
   --header-h: 60px;
   --discord: #5865F2;
   --discord-dark: #4752c4;
+  --discord-black: #1e1f22;
 }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
@@ -37,11 +35,9 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-
 a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--primary-dark); }
 .container { width: min(960px, 92%); margin: 0 auto; }
-
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -50,7 +46,6 @@ a:hover { color: var(--primary-dark); }
   border-bottom: 1px solid var(--border);
   z-index: 1000;
 }
-
 .header-inner {
   display: flex;
   align-items: center;
@@ -59,7 +54,6 @@ a:hover { color: var(--primary-dark); }
   width: min(1100px, 94%);
   margin: 0 auto;
 }
-
 .logo {
   display: flex;
   align-items: baseline;
@@ -68,21 +62,17 @@ a:hover { color: var(--primary-dark); }
   text-decoration: none;
   font-weight: 900;
 }
-
 .logo:hover { color: var(--text); }
-
 .logo-block {
   font-size: clamp(1.1rem, 2.8vw, 1.4rem);
   letter-spacing: 0.06em;
   color: var(--text);
 }
-
 .logo-tag {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--primary);
 }
-
 .menu-toggle {
   width: 40px; height: 40px;
   background: transparent;
@@ -94,14 +84,12 @@ a:hover { color: var(--primary-dark); }
   justify-content: center;
   gap: 5px;
 }
-
 .menu-toggle span {
   display: block;
   width: 20px; height: 2px;
   background: var(--text);
   border-radius: 1px;
 }
-
 .side-menu {
   position: fixed;
   top: 0; right: -280px;
@@ -114,9 +102,7 @@ a:hover { color: var(--primary-dark); }
   flex-direction: column;
   box-shadow: -4px 0 20px rgba(0,0,0,0.06);
 }
-
 .side-menu.open { right: 0; }
-
 .side-menu-header {
   display: flex;
   align-items: center;
@@ -125,7 +111,6 @@ a:hover { color: var(--primary-dark); }
   border-bottom: 1px solid var(--border);
   font-weight: 700;
 }
-
 .menu-close {
   background: none; border: none;
   color: var(--text-muted);
@@ -133,21 +118,17 @@ a:hover { color: var(--primary-dark); }
   cursor: pointer;
   line-height: 1;
 }
-
 .side-menu-list { list-style: none; padding: 12px 0; }
-
 .side-menu-list a {
   display: block;
   padding: 12px 24px;
   color: var(--text);
   font-weight: 500;
 }
-
 .side-menu-list a:hover {
   background: var(--bg-section);
   color: var(--primary);
 }
-
 .menu-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.3);
@@ -155,9 +136,7 @@ a:hover { color: var(--primary-dark); }
   opacity: 0; visibility: hidden;
   transition: 0.25s;
 }
-
 .menu-overlay.open { opacity: 1; visibility: visible; }
-
 .hero {
   position: relative;
   margin-top: var(--header-h);
@@ -165,15 +144,12 @@ a:hover { color: var(--primary-dark); }
   overflow: hidden;
   background: #e2e8f0;
 }
-
 .carousel { position: relative; width: 100%; height: 100%; }
-
 .carousel-track {
   display: flex;
   height: 100%;
   transition: transform 0.45s ease;
 }
-
 .carousel-slide {
   min-width: 100%;
   height: 100%;
@@ -182,20 +158,17 @@ a:hover { color: var(--primary-dark); }
   align-items: center;
   justify-content: center;
 }
-
 .slide-bg {
   position: absolute; inset: 0;
   background-size: cover;
   background-position: center;
   filter: brightness(0.7);
 }
-
 .slide-bg::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(15,20,30,0.55) 0%, transparent 55%);
 }
-
 .slide-content {
   position: relative; z-index: 2;
   text-align: center;
@@ -203,14 +176,12 @@ a:hover { color: var(--primary-dark); }
   max-width: 640px;
   color: #fff;
 }
-
 .slide-label {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   margin-bottom: 10px;
   opacity: 0.9;
 }
-
 .slide-title {
   font-size: clamp(1.9rem, 5vw, 2.8rem);
   font-weight: 900;
@@ -219,13 +190,11 @@ a:hover { color: var(--primary-dark); }
   margin-bottom: 10px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.35);
 }
-
 .slide-subtitle {
   font-size: 1.05rem;
   opacity: 0.95;
   margin-bottom: 24px;
 }
-
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -243,11 +212,9 @@ a:hover { color: var(--primary-dark); }
   justify-content: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
-
 .carousel-btn:hover { background: #fff; }
 .carousel-btn.prev { left: 12px; }
 .carousel-btn.next { right: 12px; }
-
 .carousel-dots {
   position: absolute;
   bottom: 18px;
@@ -257,7 +224,6 @@ a:hover { color: var(--primary-dark); }
   gap: 8px;
   z-index: 10;
 }
-
 .carousel-dots button {
   width: 8px; height: 8px;
   border-radius: 50%;
@@ -266,15 +232,16 @@ a:hover { color: var(--primary-dark); }
   cursor: pointer;
   padding: 0;
 }
-
 .carousel-dots button.active {
   background: #fff;
   width: 20px;
   border-radius: 4px;
 }
-
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 11px 24px;
   border-radius: 8px;
   font-weight: 700;
@@ -283,38 +250,36 @@ a:hover { color: var(--primary-dark); }
   border: none;
   cursor: pointer;
 }
-
 .btn-primary {
   background: var(--primary);
   color: #fff;
 }
-
 .btn-primary:hover {
   background: var(--primary-dark);
   color: #fff;
 }
-
 .btn-discord {
   background: var(--discord);
   color: #fff;
   padding: 14px 32px;
   font-size: 1.05rem;
 }
-
 .btn-discord:hover {
   background: var(--discord-dark);
   color: #fff;
 }
-
+.btn-discord svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
 .section { padding: 64px 0; }
-
 .section-title {
   font-size: 1.55rem;
   font-weight: 700;
   margin-bottom: 8px;
   text-align: center;
 }
-
 .section-title::after {
   content: '';
   display: block;
@@ -323,48 +288,60 @@ a:hover { color: var(--primary-dark); }
   margin: 12px auto 0;
   border-radius: 2px;
 }
-
 .section-lead {
   text-align: center;
   color: var(--text-muted);
   margin-bottom: 32px;
   font-size: 0.98rem;
 }
-
 .discord-cta {
-  background: linear-gradient(135deg, #5865F2 0%, #4752c4 100%);
+  background: linear-gradient(135deg, var(--discord-black) 0%, #2b2d31 40%, var(--discord) 100%);
   color: #fff;
   text-align: center;
-  padding: 48px 0;
+  padding: 52px 0;
+  position: relative;
+  overflow: hidden;
 }
-
+.discord-cta::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(88,101,242,0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
 .discord-cta .section-title {
   color: #fff;
   margin-bottom: 4px;
+  position: relative;
 }
-
 .discord-cta .section-title::after {
   background: rgba(255,255,255,0.85);
 }
-
 .discord-cta .section-lead {
   color: rgba(255,255,255,0.9);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  position: relative;
 }
-
 .discord-cta .btn-discord {
   background: #fff;
   color: var(--discord);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  position: relative;
 }
-
 .discord-cta .btn-discord:hover {
   background: #f0f0ff;
   color: var(--discord-dark);
 }
-
+.discord-cta .btn-discord svg {
+  fill: var(--discord);
+}
+.discord-cta .btn-discord:hover svg {
+  fill: var(--discord-dark);
+}
 .news-section { background: var(--bg-section); }
-
 .news-list {
   display: flex;
   flex-direction: column;
@@ -372,16 +349,13 @@ a:hover { color: var(--primary-dark); }
   max-width: 720px;
   margin: 0 auto;
 }
-
 .news-item {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 18px 20px;
 }
-
 .news-item.important { border-left: 3px solid var(--accent); }
-
 .news-meta {
   display: flex;
   align-items: center;
@@ -390,7 +364,6 @@ a:hover { color: var(--primary-dark); }
   font-size: 0.82rem;
   color: var(--text-muted);
 }
-
 .news-badge {
   background: var(--accent);
   color: #111;
@@ -399,27 +372,22 @@ a:hover { color: var(--primary-dark); }
   padding: 2px 7px;
   border-radius: 3px;
 }
-
 .news-title {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 4px;
 }
-
 .news-excerpt {
   font-size: 0.92rem;
   color: var(--text-muted);
 }
-
 .features-section {
   background: #fff;
   padding: 72px 0 80px;
 }
-
 .features-section .section-title {
   margin-bottom: 48px;
 }
-
 .features-list {
   display: flex;
   flex-direction: column;
@@ -428,12 +396,10 @@ a:hover { color: var(--primary-dark); }
   max-width: 520px;
   margin: 0 auto;
 }
-
 .feature-item {
   text-align: center;
   width: 100%;
 }
-
 .feature-icon-box {
   width: 72px;
   height: 72px;
@@ -445,12 +411,10 @@ a:hover { color: var(--primary-dark); }
   justify-content: center;
   background: #fff;
 }
-
 .feature-icon-box svg {
   width: 32px;
   height: 32px;
 }
-
 .feature-item h3 {
   font-size: 1.2rem;
   font-weight: 700;
@@ -458,7 +422,6 @@ a:hover { color: var(--primary-dark); }
   margin-bottom: 12px;
   letter-spacing: 0.02em;
 }
-
 .feature-item p {
   font-size: 0.95rem;
   color: var(--text-muted);
@@ -466,7 +429,6 @@ a:hover { color: var(--primary-dark); }
   max-width: 420px;
   margin: 0 auto;
 }
-
 .feature-icon-box.blue   { border-color: #93c5fd; }
 .feature-icon-box.blue svg { stroke: #3b82f6; fill: none; }
 .feature-icon-box.green  { border-color: #86efac; }
@@ -477,14 +439,10 @@ a:hover { color: var(--primary-dark); }
 .feature-icon-box.purple svg { stroke: #7c3aed; fill: none; }
 .feature-icon-box.pink   { border-color: #f9a8d4; }
 .feature-icon-box.pink svg { stroke: #db2777; fill: none; }
-.feature-icon-box.sky    { border-color: #7dd3fc; }
-.feature-icon-box.sky svg { stroke: #0284c7; fill: none; }
-
 .links-section {
   background: var(--bg-section);
   padding: 64px 0;
 }
-
 .links-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -492,7 +450,6 @@ a:hover { color: var(--primary-dark); }
   max-width: 720px;
   margin: 0 auto;
 }
-
 .link-card {
   display: flex;
   align-items: center;
@@ -506,71 +463,62 @@ a:hover { color: var(--primary-dark); }
   text-decoration: none;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
 }
-
 .link-card:hover {
   border-color: var(--primary);
   box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
   color: var(--text);
   transform: translateY(-2px);
 }
-
 .link-card-text h3 {
   font-size: 1.08rem;
   font-weight: 700;
   margin-bottom: 4px;
 }
-
 .link-card-text p {
   font-size: 0.88rem;
   color: var(--text-muted);
 }
-
 .link-card-arrow {
   font-size: 1.4rem;
   color: var(--primary);
   font-weight: 700;
   flex-shrink: 0;
 }
-
 .footer {
   background: #fff;
   border-top: 1px solid var(--border);
   padding: 28px 0;
   text-align: center;
 }
-
 .footer-logo {
   font-weight: 900;
   font-size: 1.05rem;
   letter-spacing: 0.04em;
   margin-bottom: 6px;
 }
-
 .footer-copy {
   font-size: 0.82rem;
   color: var(--text-muted);
 }
-
 .discord-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 900;
   width: min(280px, calc(100vw - 32px));
-  background: var(--discord);
+  background: linear-gradient(160deg, var(--discord-black) 0%, #2b2d31 50%, var(--discord) 100%);
   color: #fff;
   border-radius: 12px;
   padding: 18px 18px 16px;
-  box-shadow: 0 8px 28px rgba(88, 101, 242, 0.4);
+  box-shadow: 0 8px 28px rgba(30, 31, 34, 0.45);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: 1px solid rgba(88, 101, 242, 0.4);
 }
-
 .discord-float.hidden {
   display: none;
 }
-
 .discord-float-close {
   position: absolute;
   top: -8px;
@@ -588,7 +536,6 @@ a:hover { color: var(--primary-dark); }
   padding: 0;
   line-height: 1;
 }
-
 .discord-float-close svg {
   width: 14px;
   height: 14px;
@@ -596,26 +543,45 @@ a:hover { color: var(--primary-dark); }
   stroke-width: 2.5;
   fill: none;
 }
-
 .discord-float-close:hover {
   background: #f1f5f9;
 }
-
+.discord-float-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.discord-float-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--discord);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.discord-float-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
 .discord-float-title {
   font-weight: 800;
   font-size: 1rem;
   line-height: 1.3;
   padding-right: 4px;
 }
-
 .discord-float-desc {
   font-size: 0.82rem;
   opacity: 0.92;
   line-height: 1.45;
 }
-
 .discord-float-btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   text-align: center;
   background: #fff;
   color: var(--discord);
@@ -624,14 +590,17 @@ a:hover { color: var(--primary-dark); }
   padding: 10px 14px;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
-
 .discord-float-btn:hover {
   background: #f0f0ff;
   color: var(--discord-dark);
 }
-
+.discord-float-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
 @media (max-width: 600px) {
   .hero { height: min(50vh, 400px); }
   .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
@@ -669,7 +638,6 @@ a:hover { color: var(--primary-dark); }
       </button>
     </div>
   </header>
-
   <nav class="side-menu" id="sideMenu">
     <div class="side-menu-header">
       <span>メニュー</span>
@@ -686,7 +654,6 @@ a:hover { color: var(--primary-dark); }
     </ul>
   </nav>
   <div class="menu-overlay" id="menuOverlay"></div>
-
   <section class="hero" id="hero">
     <div class="carousel" id="carousel">
       <div class="carousel-track" id="carouselTrack">
@@ -723,27 +690,26 @@ a:hover { color: var(--primary-dark); }
       <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </section>
-
   <section class="discord-cta" id="discord">
     <div class="container">
       <h2 class="section-title">まずはDiscordへ</h2>
       <p class="section-lead">情報のGET・参加・質問・報告はすべてDiscordから。コミュニティの中心です。</p>
-      <a href="https://discord.gg/Tj6RwtZYw7" class="btn btn-discord" target="_blank" rel="noopener">Discordに参加する</a>
+      <a href="https://discord.gg/Tj6RwtZYw7" class="btn btn-discord" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        Discordに参加する
+      </a>
     </div>
   </section>
-
   <section class="section news-section" id="news">
     <div class="container">
       <h2 class="section-title">ニュース</h2>
       <div class="news-list" id="newsList"></div>
     </div>
   </section>
-
   <section class="features-section" id="features">
     <div class="container">
       <h2 class="section-title">この鯖の特徴</h2>
       <div class="features-list">
-
         <div class="feature-item">
           <div class="feature-icon-box blue">
             <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -756,7 +722,6 @@ a:hover { color: var(--primary-dark); }
           <h3>気軽に参加できる</h3>
           <p>統合版対応。スマホ・Switch・Windowsなどから、フレンド申請するだけで入れます。IP入力は不要です。</p>
         </div>
-
         <div class="feature-item">
           <div class="feature-icon-box green">
             <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -766,20 +731,23 @@ a:hover { color: var(--primary-dark); }
           <h3>民度を大切に</h3>
           <p>荒らしや迷惑行為は排除しています。安心して建築・冒険・交流を楽しめる環境を維持しています。</p>
         </div>
-
         <div class="feature-item">
           <div class="feature-icon-box amber">
             <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"/>
-              <rect x="14" y="3" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/>
+              <path d="M12 2v4"/>
+              <path d="M12 18v4"/>
+              <path d="M4.93 4.93l2.83 2.83"/>
+              <path d="M16.24 16.24l2.83 2.83"/>
+              <path d="M2 12h4"/>
+              <path d="M18 12h4"/>
+              <path d="M4.93 19.07l2.83-2.83"/>
+              <path d="M16.24 7.76l2.83-2.83"/>
+              <circle cx="12" cy="12" r="4"/>
             </svg>
           </div>
-          <h3>建築・生活を楽しむ</h3>
-          <p>サバイバルをベースに、自分のペースで建築や街づくりができます。他人の建築への配慮を大切にしています。</p>
+          <h3>自分のペースで進行可能</h3>
+          <p>サバイバルをベースに、急かされることなく自分のペースで建築や探索ができます。他人の建築への配慮も大切にしています。</p>
         </div>
-
         <div class="feature-item">
           <div class="feature-icon-box purple">
             <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -790,7 +758,6 @@ a:hover { color: var(--primary-dark); }
           <h3>イベント・交流</h3>
           <p>たまにイベントや企画を実施しています。参加者同士の交流も、鯖の大事な要素のひとつです。</p>
         </div>
-
         <div class="feature-item">
           <div class="feature-icon-box pink">
             <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -800,22 +767,9 @@ a:hover { color: var(--primary-dark); }
           <h3>困ったときはDiscordへ</h3>
           <p>質問・報告・相談はDiscordで受け付けています。わからないことがあっても気軽に聞いてください。</p>
         </div>
-
-        <div class="feature-item">
-          <div class="feature-icon-box sky">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <h3>いつでも遊べる</h3>
-          <p>サーバーは常時稼働。深夜でも早朝でも、空いた時間にサクッと遊びに来てください。</p>
-        </div>
-
       </div>
     </div>
   </section>
-
   <section class="links-section" id="links">
     <div class="container">
       <h2 class="section-title">各種ページ</h2>
@@ -845,14 +799,12 @@ a:hover { color: var(--primary-dark); }
       </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="container">
       <p class="footer-logo">DOLDO SERVER</p>
       <p class="footer-copy">&copy; 2026 DOLDO SERVER 【ドル鯖】</p>
     </div>
   </footer>
-
   <div class="discord-float" id="discordFloat" role="complementary" aria-label="Discord参加の案内">
     <button class="discord-float-close" id="discordFloatClose" aria-label="閉じる">
       <svg viewBox="0 0 14 14" aria-hidden="true">
@@ -860,47 +812,31 @@ a:hover { color: var(--primary-dark); }
         <line x1="12" y1="2" x2="2" y2="12"/>
       </svg>
     </button>
-    <p class="discord-float-title">Discordに参加しよう</p>
+    <div class="discord-float-header">
+      <div class="discord-float-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      </div>
+      <p class="discord-float-title">Discordに参加しよう</p>
+    </div>
     <p class="discord-float-desc">最新情報のGET・参加・質問はすべてDiscordから。</p>
-    <a href="https://discord.gg/Tj6RwtZYw7" class="discord-float-btn" target="_blank" rel="noopener">今すぐ参加する</a>
+    <a href="https://discord.gg/Tj6RwtZYw7" class="discord-float-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      今すぐ参加する
+    </a>
   </div>
-
+  <script src="news.js"></script>
   <script>
-const newsData = [
-  {
-    id: 1,
-    date: "2026-08-25",
-    title: "公式サイトを公開しました",
-    excerpt: "DOLDO SERVER（ドル鯖）の公式ページを公開しました。参加方法やルールはこちらから確認できます。",
-    important: true
-  },
-  {
-    id: 2,
-    date: "2026-08-20",
-    title: "フレンド申請で参加できます",
-    excerpt: "IPは不要です。ゲーム内で「Doldo BE」を検索してフレンド申請してください。",
-    important: false
-  },
-  {
-    id: 3,
-    date: "2026-08-15",
-    title: "Discordを開設しました",
-    excerpt: "ドル鯖のDiscordです。参加・質問はこちらへどうぞ。",
-    important: false
-  }
-];
-
 function renderNews() {
   const list = document.getElementById("newsList");
-  if (!list) return;
-  list.innerHTML = newsData.map((item) => {
+  if (!list || typeof newsData === "undefined") return;
+  const items = newsData.slice(0, 3);
+  list.innerHTML = items.map((item) => {
     const d = new Date(item.date);
     const dateStr = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日";
     const badge = item.important ? '<span class="news-badge">重要</span>' : "";
     return '<article class="news-item ' + (item.important ? "important" : "") + '"><div class="news-meta">' + badge + '<time>' + dateStr + '</time></div><h3 class="news-title">' + item.title + '</h3><p class="news-excerpt">' + item.excerpt + '</p></article>';
   }).join("");
 }
-
 document.addEventListener("DOMContentLoaded", function() {
   renderNews();
   initMenu();
@@ -908,35 +844,29 @@ document.addEventListener("DOMContentLoaded", function() {
   initSmoothScroll();
   initDiscordFloat();
 });
-
 function initMenu() {
   var toggle = document.getElementById("menuToggle");
   var closeBtn = document.getElementById("menuClose");
   var menu = document.getElementById("sideMenu");
   var overlay = document.getElementById("menuOverlay");
   if (!toggle || !menu) return;
-
   function open() { menu.classList.add("open"); overlay.classList.add("open"); document.body.style.overflow = "hidden"; }
   function close() { menu.classList.remove("open"); overlay.classList.remove("open"); document.body.style.overflow = ""; }
-
   toggle.addEventListener("click", open);
   closeBtn.addEventListener("click", close);
   overlay.addEventListener("click", close);
   menu.querySelectorAll("a").forEach(function(a) { a.addEventListener("click", close); });
 }
-
 function initCarousel() {
   var track = document.getElementById("carouselTrack");
   var prevBtn = document.getElementById("prevBtn");
   var nextBtn = document.getElementById("nextBtn");
   var dotsContainer = document.getElementById("carouselDots");
   if (!track) return;
-
   var slides = track.querySelectorAll(".carousel-slide");
   var total = slides.length;
   var current = 0;
   var timer = null;
-
   if (dotsContainer) {
     dotsContainer.innerHTML = "";
     for (var i = 0; i < total; i++) {
@@ -946,7 +876,6 @@ function initCarousel() {
       dotsContainer.appendChild(btn);
     }
   }
-
   function goTo(index) {
     current = (index + total) % total;
     track.style.transform = "translateX(-" + (current * 100) + "%)";
@@ -955,27 +884,22 @@ function initCarousel() {
     }
     resetTimer();
   }
-
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
   function resetTimer() {
     if (timer) clearInterval(timer);
     timer = setInterval(next, 6000);
   }
-
   if (prevBtn) prevBtn.addEventListener("click", prev);
   if (nextBtn) nextBtn.addEventListener("click", next);
-
   var startX = 0;
   track.addEventListener("touchstart", function(e) { startX = e.changedTouches[0].screenX; }, { passive: true });
   track.addEventListener("touchend", function(e) {
     var diff = e.changedTouches[0].screenX - startX;
     if (Math.abs(diff) > 50) { if (diff > 0) prev(); else next(); }
   }, { passive: true });
-
   resetTimer();
 }
-
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener("click", function(e) {
@@ -990,12 +914,10 @@ function initSmoothScroll() {
     });
   });
 }
-
 function initDiscordFloat() {
   var floatEl = document.getElementById("discordFloat");
   var closeBtn = document.getElementById("discordFloatClose");
   if (!floatEl || !closeBtn) return;
-
   closeBtn.addEventListener("click", function() {
     floatEl.classList.add("hidden");
   });

@@ -449,7 +449,7 @@ a:hover { color: var(--primary-dark); }
   <section class="page-hero">
     <div class="container">
       <h1>お問い合わせ</h1>
-      <p>質問・報告・その他のご連絡はこちらからどうぞ。</p>
+      <p>質問・報告・要望・その他のご連絡はこちらからどうぞ。</p>
     </div>
   </section>
 
@@ -464,16 +464,16 @@ a:hover { color: var(--primary-dark); }
               <option value="質問">質問</option>
               <option value="報告・違反">報告・違反</option>
               <option value="参加について">参加について</option>
-              <option value="運営応募">運営応募</option>
+              <option value="障害情報">障害情報</option>
               <option value="その他">その他</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="name">お名前 / ゲーム内ID<span class="req">*</span></label>
+            <label for="name">お名前 / マイクラ内ID（MCID）<span class="req">*</span></label>
             <input type="text" id="name" name="name" placeholder="例: たろう / Taro123" required maxlength="50" autocomplete="nickname">
           </div>
           <div class="form-group">
-            <label for="discord">Discord名（任意）</label>
+            <label for="discord">DiscordID（任意）</label>
             <input type="text" id="discord" name="discord" placeholder="例: taro#1234 または taro" maxlength="40" autocomplete="off">
           </div>
           <div class="form-group">
@@ -493,7 +493,8 @@ a:hover { color: var(--primary-dark); }
 
         <div class="note-box">
           <strong>補足</strong>
-          緊急の報告や即時対応が必要な場合は、Discordサーバー内の報告チャンネルを優先してください。こちらからの返信はDiscord経由になることがあります。
+          緊急の報告や即時対応が必要な場合は、Discordサーバー内の報告チャンネルを優先してください。こちらからの返信はDiscord経由になることがあります。<br>
+          また、関係ない情報の送信・スパムなどはご遠慮ください。
         </div>
       </div>
     </div>
@@ -582,7 +583,7 @@ function initContactForm() {
 
     var fields = [
       { name: "種別", value: category, inline: true },
-      { name: "名前 / ID", value: name, inline: true }
+      { name: "名前/MCID", value: name, inline: true }
     ];
     if (discord) {
       fields.push({ name: "Discord", value: discord, inline: true });

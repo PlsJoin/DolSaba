@@ -4,28 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOLDO SERVER【ドル鯖】| マイクラ統合版 参加型サーバー</title>
-  <meta name="description" content="DOLDO SERVER（ドル鯖）はMinecraft統合版の参加型サーバーです。フレンド申請で気軽に参加できます。">
+  <meta name="description" content="DOLDO SERVER（ドル鯖）はMinecraft統合版の参加型サーバーです。フレンド申請で気軽に参加できます。表示名は変更可能です。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
+  --primary: #06C755;
+  --primary-dark: #00a644;
+  --primary-light: #e8faf0;
   --accent: #f59e0b;
-  --bg: #ffffff;
+  --bg: #fafbfc;
   --bg-card: #ffffff;
-  --bg-section: #f8fafc;
-  --text: #1e293b;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
+  --bg-section: #f0f4f2;
+  --text: #1a2e22;
+  --text-muted: #5a6b62;
+  --border: #d8e5de;
   --success: #16a34a;
-  --radius: 10px;
+  --radius: 12px;
   --header-h: 60px;
-  --discord: #5865F2;
-  --discord-dark: #4752c4;
-  --discord-black: #1e1f22;
+  --line: #06C755;
+  --line-dark: #00a644;
+  --line-black: #111111;
 }
 html {
   scroll-behavior: smooth;
@@ -38,14 +39,15 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--primary-dark); }
+a { color: var(--primary-dark); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--primary); }
 .container { width: min(960px, 92%); margin: 0 auto; }
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--header-h);
-  background: #fff;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
 }
@@ -129,8 +131,8 @@ a:hover { color: var(--primary-dark); }
   font-weight: 500;
 }
 .side-menu-list a:hover {
-  background: var(--bg-section);
-  color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary-dark);
 }
 .menu-overlay {
   position: fixed; inset: 0;
@@ -165,12 +167,12 @@ a:hover { color: var(--primary-dark); }
   position: absolute; inset: 0;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.7);
+  filter: brightness(0.68);
 }
 .slide-bg::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(15,20,30,0.55) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(10,30,20,0.6) 0%, transparent 55%);
 }
 .slide-content {
   position: relative; z-index: 2;
@@ -204,7 +206,7 @@ a:hover { color: var(--primary-dark); }
   transform: translateY(-50%);
   width: 42px; height: 42px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.9);
   border: none;
   color: var(--text);
   font-size: 1.5rem;
@@ -246,12 +248,13 @@ a:hover { color: var(--primary-dark); }
   justify-content: center;
   gap: 8px;
   padding: 11px 24px;
-  border-radius: 8px;
+  border-radius: 999px;
   font-weight: 700;
   font-size: 0.95rem;
   transition: 0.2s;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 }
 .btn-primary {
   background: var(--primary);
@@ -261,17 +264,18 @@ a:hover { color: var(--primary-dark); }
   background: var(--primary-dark);
   color: #fff;
 }
-.btn-discord {
-  background: var(--discord);
+.btn-line {
+  background: var(--line);
   color: #fff;
   padding: 14px 32px;
   font-size: 1.05rem;
+  border-radius: 999px;
 }
-.btn-discord:hover {
-  background: var(--discord-dark);
+.btn-line:hover {
+  background: var(--line-dark);
   color: #fff;
 }
-.btn-discord svg {
+.btn-line svg {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
@@ -297,52 +301,68 @@ a:hover { color: var(--primary-dark); }
   margin-bottom: 32px;
   font-size: 0.98rem;
 }
-.discord-cta {
-  background: linear-gradient(135deg, var(--discord-black) 0%, #2b2d31 40%, var(--discord) 100%);
+.line-cta {
+  background: linear-gradient(135deg, #0a1f14 0%, #12301f 45%, var(--line) 100%);
   color: #fff;
   text-align: center;
   padding: 52px 0;
   position: relative;
   overflow: hidden;
 }
-.discord-cta::before {
+.line-cta::before {
   content: '';
   position: absolute;
   top: -40%;
   right: -10%;
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(88,101,242,0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(6,199,85,0.4) 0%, transparent 70%);
   pointer-events: none;
 }
-.discord-cta .section-title {
+.line-cta .section-title {
   color: #fff;
   margin-bottom: 4px;
   position: relative;
 }
-.discord-cta .section-title::after {
+.line-cta .section-title::after {
   background: rgba(255,255,255,0.85);
 }
-.discord-cta .section-lead {
+.line-cta .section-lead {
   color: rgba(255,255,255,0.9);
   margin-bottom: 28px;
   position: relative;
 }
-.discord-cta .btn-discord {
+.line-cta .btn-line {
   background: #fff;
-  color: var(--discord);
+  color: var(--line-dark);
   box-shadow: 0 4px 18px rgba(0,0,0,0.25);
   position: relative;
 }
-.discord-cta .btn-discord:hover {
-  background: #f0f0ff;
-  color: var(--discord-dark);
+.line-cta .btn-line:hover {
+  background: #f0fff5;
+  color: #008c3a;
 }
-.discord-cta .btn-discord svg {
-  fill: var(--discord);
+.line-cta .btn-line svg {
+  fill: var(--line-dark);
 }
-.discord-cta .btn-discord:hover svg {
-  fill: var(--discord-dark);
+.line-cta .btn-line:hover svg {
+  fill: #008c3a;
+}
+.name-notice {
+  max-width: 520px;
+  margin: 20px auto 0;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  position: relative;
+}
+.name-notice strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.95rem;
 }
 .news-section { background: var(--bg-section); }
 .news-list {
@@ -432,10 +452,10 @@ a:hover { color: var(--primary-dark); }
   max-width: 420px;
   margin: 0 auto;
 }
-.feature-icon-box.blue   { border-color: #93c5fd; }
-.feature-icon-box.blue svg { stroke: #3b82f6; fill: none; }
 .feature-icon-box.green  { border-color: #86efac; }
 .feature-icon-box.green svg { stroke: #16a34a; fill: none; }
+.feature-icon-box.blue   { border-color: #93c5fd; }
+.feature-icon-box.blue svg { stroke: #3b82f6; fill: none; }
 .feature-icon-box.amber  { border-color: #fcd34d; }
 .feature-icon-box.amber svg { stroke: #d97706; fill: none; }
 .feature-icon-box.purple { border-color: #c4b5fd; }
@@ -468,7 +488,7 @@ a:hover { color: var(--primary-dark); }
 }
 .link-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 4px 16px rgba(6, 199, 85, 0.15);
   color: var(--text);
   transform: translateY(-2px);
 }
@@ -503,107 +523,6 @@ a:hover { color: var(--primary-dark); }
   font-size: 0.82rem;
   color: var(--text-muted);
 }
-.discord-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 900;
-  width: min(280px, calc(100vw - 32px));
-  background: linear-gradient(160deg, var(--discord-black) 0%, #2b2d31 50%, var(--discord) 100%);
-  color: #fff;
-  border-radius: 12px;
-  padding: 18px 18px 16px;
-  box-shadow: 0 8px 28px rgba(30, 31, 34, 0.45);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border: 1px solid rgba(88, 101, 242, 0.4);
-}
-.discord-float.hidden {
-  display: none;
-}
-.discord-float-close {
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #fff;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  padding: 0;
-  line-height: 1;
-}
-.discord-float-close svg {
-  width: 14px;
-  height: 14px;
-  stroke: #333;
-  stroke-width: 2.5;
-  fill: none;
-}
-.discord-float-close:hover {
-  background: #f1f5f9;
-}
-.discord-float-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.discord-float-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--discord);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.discord-float-icon svg {
-  width: 22px;
-  height: 22px;
-  fill: #fff;
-}
-.discord-float-title {
-  font-weight: 800;
-  font-size: 1rem;
-  line-height: 1.3;
-  padding-right: 4px;
-}
-.discord-float-desc {
-  font-size: 0.82rem;
-  opacity: 0.92;
-  line-height: 1.45;
-}
-.discord-float-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-align: center;
-  background: #fff;
-  color: var(--discord);
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-.discord-float-btn:hover {
-  background: #f0f0ff;
-  color: var(--discord-dark);
-}
-.discord-float-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
 @media (max-width: 600px) {
   .hero { height: min(50vh, 400px); }
   .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
@@ -611,19 +530,13 @@ a:hover { color: var(--primary-dark); }
   .carousel-btn.next { right: 8px; }
   .section { padding: 48px 0; }
   .section-title { font-size: 1.35rem; }
-  .discord-cta { padding: 40px 0; }
+  .line-cta { padding: 40px 0; }
   .features-section { padding: 56px 0 64px; }
   .features-list { gap: 40px; }
   .feature-icon-box { width: 64px; height: 64px; border-radius: 16px; }
   .feature-icon-box svg { width: 28px; height: 28px; }
   .feature-item h3 { font-size: 1.1rem; }
   .links-section { padding: 48px 0; }
-  .discord-float {
-    bottom: 14px;
-    right: 14px;
-    width: min(260px, calc(100vw - 28px));
-    padding: 16px 14px 14px;
-  }
 }
   </style>
 </head>
@@ -648,12 +561,12 @@ a:hover { color: var(--primary-dark); }
     </div>
     <ul class="side-menu-list">
       <li><a href="#hero">トップ</a></li>
-      <li><a href="#discord">Discord</a></li>
+      <li><a href="#line">LINEオープンチャット</a></li>
       <li><a href="#news">ニュース</a></li>
       <li><a href="#features">鯖の特徴</a></li>
       <li><a href="join.html">参加方法を確認</a></li>
       <li><a href="guidelines.html">利用規約 / ガイドライン</a></li>
-      <li><a href="contact.html">お問い合わせ</a></li>
+      <li><a href="https://forms.gle/GoxPrE5DBtYSdn8e6" target="_blank" rel="noopener">お問い合わせ</a></li>
     </ul>
   </nav>
   <div class="menu-overlay" id="menuOverlay"></div>
@@ -666,7 +579,7 @@ a:hover { color: var(--primary-dark); }
             <p class="slide-label">Minecraft 統合版</p>
             <h1 class="slide-title">DOLDO SERVER</h1>
             <p class="slide-subtitle">【ドル鯖】参加型サバイバルサーバー</p>
-            <a href="#discord" class="btn btn-primary">Discordに参加</a>
+            <a href="#line" class="btn btn-primary">LINEで参加する</a>
           </div>
         </div>
         <div class="carousel-slide">
@@ -683,7 +596,7 @@ a:hover { color: var(--primary-dark); }
           <div class="slide-content">
             <p class="slide-label">参加型</p>
             <h1 class="slide-title">フレンド申請で参加</h1>
-            <p class="slide-subtitle">気軽に遊べるコミュニティ</p>
+            <p class="slide-subtitle">表示名は変更可能・気軽に遊べる</p>
             <a href="join.html" class="btn btn-primary">参加方法を確認</a>
           </div>
         </div>
@@ -693,14 +606,18 @@ a:hover { color: var(--primary-dark); }
       <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </section>
-  <section class="discord-cta" id="discord">
+  <section class="line-cta" id="line">
     <div class="container">
-      <h2 class="section-title">まずはDiscordへ</h2>
-      <p class="section-lead">情報のGET・参加・質問・報告はすべてDiscordから。コミュニティの中心です。</p>
-      <a href="https://discord.gg/Tj6RwtZYw7" class="btn btn-discord" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-        Discordに参加する
+      <h2 class="section-title">まずはLINEオープンチャットへ</h2>
+      <p class="section-lead">情報のGET・参加・質問・報告はすべてLINEオープンチャットから。コミュニティの中心です。</p>
+      <a href="https://line.me/ti/g2/m-35LWaRXXRocL6XmN3Xq7jRrvnJWPI-figSOQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="btn btn-line" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.286.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.27.173-.51.43-.595.063-.022.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEオープンチャットに参加
       </a>
+      <div class="name-notice">
+        <strong>表示名は変更可能です</strong>
+        オープンチャットでは表示名を自由に設定できます。本名を出す必要はなく、偽名での参加もOKです。
+      </div>
     </div>
   </section>
   <section class="section news-section" id="news">
@@ -714,7 +631,7 @@ a:hover { color: var(--primary-dark); }
       <h2 class="section-title">この鯖の特徴</h2>
       <div class="features-list">
         <div class="feature-item">
-          <div class="feature-icon-box blue">
+          <div class="feature-icon-box green">
             <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
@@ -723,10 +640,10 @@ a:hover { color: var(--primary-dark); }
             </svg>
           </div>
           <h3>気軽に参加できる</h3>
-          <p>統合版対応。スマホ・Switch・Windowsなどから、フレンド申請するだけで入れます。IP入力は不要です。</p>
+          <p>統合版対応。スマホ・Switch・Windowsなどから、フレンド申請するだけで入れます。IP入力は不要です。表示名も変更可能です。</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon-box green">
+          <div class="feature-icon-box blue">
             <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
@@ -767,8 +684,8 @@ a:hover { color: var(--primary-dark); }
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
           </div>
-          <h3>困ったときはDiscordへ</h3>
-          <p>質問・報告・相談はDiscordで受け付けています。わからないことがあっても気軽に聞いてください。</p>
+          <h3>困ったときはLINEへ</h3>
+          <p>質問・報告・相談はLINEオープンチャットで受け付けています。わからないことがあっても気軽に聞いてください。</p>
         </div>
       </div>
     </div>
@@ -792,7 +709,7 @@ a:hover { color: var(--primary-dark); }
           </div>
           <span class="link-card-arrow">→</span>
         </a>
-        <a href="contact.html" class="link-card">
+        <a href="https://forms.gle/GoxPrE5DBtYSdn8e6" class="link-card" target="_blank" rel="noopener">
           <div class="link-card-text">
             <h3>お問い合わせ</h3>
             <p>質問・報告はこちら</p>
@@ -808,25 +725,6 @@ a:hover { color: var(--primary-dark); }
       <p class="footer-copy">&copy; 2026 DOLDO SERVER 【ドル鯖】</p>
     </div>
   </footer>
-  <div class="discord-float" id="discordFloat" role="complementary" aria-label="Discord参加の案内">
-    <button class="discord-float-close" id="discordFloatClose" aria-label="閉じる">
-      <svg viewBox="0 0 14 14" aria-hidden="true">
-        <line x1="2" y1="2" x2="12" y2="12"/>
-        <line x1="12" y1="2" x2="2" y2="12"/>
-      </svg>
-    </button>
-    <div class="discord-float-header">
-      <div class="discord-float-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-      </div>
-      <p class="discord-float-title">Discordに参加しよう</p>
-    </div>
-    <p class="discord-float-desc">最新情報のGET・参加・質問はすべてDiscordから。</p>
-    <a href="https://discord.gg/Tj6RwtZYw7" class="discord-float-btn" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-      今すぐ参加する
-    </a>
-  </div>
   <script src="news.js"></script>
   <script>
 function renderNews() {
@@ -845,7 +743,6 @@ document.addEventListener("DOMContentLoaded", function() {
   initMenu();
   initCarousel();
   initSmoothScroll();
-  initDiscordFloat();
 });
 function initMenu() {
   var toggle = document.getElementById("menuToggle");
@@ -923,14 +820,6 @@ function initSmoothScroll() {
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     });
-  });
-}
-function initDiscordFloat() {
-  var floatEl = document.getElementById("discordFloat");
-  var closeBtn = document.getElementById("discordFloatClose");
-  if (!floatEl || !closeBtn) return;
-  closeBtn.addEventListener("click", function() {
-    floatEl.classList.add("hidden");
   });
 }
   </script>

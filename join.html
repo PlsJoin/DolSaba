@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOLDO SERVER【ドル鯖】| マイクラ統合版 参加型サーバー</title>
-  <meta name="description" content="DOLDO SERVER（ドル鯖）はMinecraft統合版の参加型サーバーです。フレンド申請で気軽に参加できます。">
+  <title>参加方法 | DOLDO SERVER【ドル鯖】</title>
+  <meta name="description" content="DOLDO SERVER（ドル鯖）の参加方法。フレンド申請で気軽に参加できます。表示名は変更可能。IP入力は不要です。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -14,6 +13,7 @@
 :root {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
+  --primary-light: #eff6ff;
   --accent: #f59e0b;
   --bg: #ffffff;
   --bg-card: #ffffff;
@@ -21,7 +21,6 @@
   --text: #1e293b;
   --text-muted: #64748b;
   --border: #e2e8f0;
-  --success: #16a34a;
   --radius: 10px;
   --header-h: 60px;
   --line: #06C755;
@@ -41,6 +40,7 @@ body {
 a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--primary-dark); }
 .container { width: min(960px, 92%); margin: 0 auto; }
+
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -140,147 +140,239 @@ a:hover { color: var(--primary-dark); }
   transition: 0.25s;
 }
 .menu-overlay.open { opacity: 1; visibility: visible; }
-.hero {
-  position: relative;
+
+.breadcrumb {
   margin-top: var(--header-h);
-  height: min(58vh, 480px);
-  overflow: hidden;
-  background: #e2e8f0;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
 }
-.carousel { position: relative; width: 100%; height: 100%; }
-.carousel-track {
-  display: flex;
-  height: 100%;
-  transition: transform 0.45s ease;
-}
-.carousel-slide {
-  min-width: 100%;
-  height: 100%;
-  position: relative;
+.breadcrumb-inner {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
 }
-.slide-bg {
-  position: absolute; inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.7);
+.breadcrumb-inner a {
+  color: var(--text-muted);
+  font-weight: 500;
 }
-.slide-bg::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(15,20,30,0.55) 0%, transparent 55%);
+.breadcrumb-inner a:hover {
+  color: var(--primary);
 }
-.slide-content {
-  position: relative; z-index: 2;
-  text-align: center;
-  padding: 0 20px;
-  max-width: 640px;
-  color: #fff;
+.breadcrumb-inner .sep {
+  color: #cbd5e1;
 }
-.slide-label {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  margin-bottom: 10px;
-  opacity: 0.9;
-}
-.slide-title {
-  font-size: clamp(1.9rem, 5vw, 2.8rem);
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
-}
-.slide-subtitle {
-  font-size: 1.05rem;
-  opacity: 0.95;
-  margin-bottom: 24px;
-}
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.85);
-  border: none;
+.breadcrumb-inner .current {
   color: var(--text);
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  font-weight: 600;
 }
-.carousel-btn:hover { background: #fff; }
-.carousel-btn.prev { left: 12px; }
-.carousel-btn.next { right: 12px; }
-.carousel-dots {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 10;
+
+.page-hero {
+  background: var(--bg-section);
+  padding: 40px 0 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
 }
-.carousel-dots button {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.5);
-  cursor: pointer;
-  padding: 0;
+.page-hero h1 {
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
 }
-.carousel-dots button.active {
-  background: #fff;
-  width: 20px;
-  border-radius: 4px;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 11px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: 0.2s;
-  border: none;
-  cursor: pointer;
-}
-.btn-primary {
-  background: var(--primary);
-  color: #fff;
-}
-.btn-primary:hover {
-  background: var(--primary-dark);
-  color: #fff;
-}
-.btn-openchat {
-  background: #fff;
-  color: var(--line-dark);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-  position: relative;
-  padding: 12px 28px;
-  border-radius: 999px;
+.page-hero p {
+  color: var(--text-muted);
   font-size: 0.98rem;
 }
-.btn-openchat:hover {
-  background: #f0fff5;
-  color: #008c3a;
+.section { padding: 56px 0; }
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
 }
-.btn-openchat svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px; height: 3px;
+  background: var(--primary);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+.section-lead {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  font-size: 0.95rem;
+}
+.steps {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.step {
+  display: flex;
+  gap: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 22px;
+  align-items: flex-start;
+}
+.step-num {
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.openchat-cta {
+.step-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.step-body p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.copy-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px 10px 14px;
+  max-width: 100%;
+}
+.copy-box code {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.03em;
+  user-select: all;
+}
+.copy-btn {
+  flex-shrink: 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+.copy-btn:hover {
+  background: var(--primary-dark);
+}
+.copy-btn.copied {
+  background: #16a34a;
+}
+
+.name-box {
+  max-width: 640px;
+  margin: 28px auto 0;
+  background: #eff6ff;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  font-size: 0.95rem;
+  color: #1e3a8a;
+  line-height: 1.75;
+}
+.name-box strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  color: #1e3a8a;
+}
+.name-box ul {
+  margin: 10px 0 0 0;
+  padding-left: 1.2em;
+}
+.name-box li {
+  margin-bottom: 4px;
+}
+
+.note-box {
+  max-width: 640px;
+  margin: 16px auto 0;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  font-size: 0.92rem;
+  color: #92400e;
+  line-height: 1.7;
+}
+.note-box strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #78350f;
+}
+.greet-box {
+  max-width: 640px;
+  margin: 16px auto 0;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  font-size: 0.92rem;
+  color: #1e40af;
+  line-height: 1.7;
+}
+.greet-box strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #1e3a8a;
+}
+.platforms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.platform-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 14px;
+  text-align: center;
+}
+.platform-card .icon {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.platform-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.platform-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.line-cta {
   background: linear-gradient(135deg, #0a1f14 0%, #12301f 45%, var(--line) 100%);
   color: #fff;
   text-align: center;
@@ -288,7 +380,7 @@ a:hover { color: var(--primary-dark); }
   position: relative;
   overflow: hidden;
 }
-.openchat-cta::before {
+.line-cta::before {
   content: '';
   position: absolute;
   top: -40%;
@@ -298,162 +390,50 @@ a:hover { color: var(--primary-dark); }
   background: radial-gradient(circle, rgba(6,199,85,0.4) 0%, transparent 70%);
   pointer-events: none;
 }
-.openchat-cta .section-title {
+.line-cta .section-title {
   color: #fff;
   margin-bottom: 4px;
   position: relative;
 }
-.openchat-cta .section-title::after {
+.line-cta .section-title::after {
   background: rgba(255,255,255,0.85);
 }
-.openchat-cta .section-lead {
+.line-cta .section-lead {
   color: rgba(255,255,255,0.9);
   margin-bottom: 24px;
   position: relative;
 }
-.news-section { background: var(--bg-section); }
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 720px;
-  margin: 0 auto;
-}
-.news-item {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-}
-.news-item.important { border-left: 3px solid var(--accent); }
-.news-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-.news-badge {
-  background: var(--accent);
-  color: #111;
-  font-weight: 700;
-  font-size: 0.72rem;
-  padding: 2px 7px;
-  border-radius: 3px;
-}
-.news-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.news-excerpt {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-}
-.features-section {
-  background: #fff;
-  padding: 72px 0 80px;
-}
-.features-section .section-title {
-  margin-bottom: 48px;
-}
-.features-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 48px;
-  max-width: 520px;
-  margin: 0 auto;
-}
-.feature-item {
-  text-align: center;
-  width: 100%;
-}
-.feature-icon-box {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 18px;
-  border-radius: 18px;
-  border: 2px solid;
-  display: flex;
+.btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-}
-.feature-icon-box svg {
-  width: 32px;
-  height: 32px;
-}
-.feature-item h3 {
-  font-size: 1.2rem;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 999px;
   font-weight: 700;
-  color: var(--text);
-  margin-bottom: 12px;
-  letter-spacing: 0.02em;
-}
-.feature-item p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.75;
-  max-width: 420px;
-  margin: 0 auto;
-}
-.feature-icon-box.blue   { border-color: #93c5fd; }
-.feature-icon-box.blue svg { stroke: #3b82f6; fill: none; }
-.feature-icon-box.green  { border-color: #86efac; }
-.feature-icon-box.green svg { stroke: #16a34a; fill: none; }
-.feature-icon-box.amber  { border-color: #fcd34d; }
-.feature-icon-box.amber svg { stroke: #d97706; fill: none; }
-.feature-icon-box.purple { border-color: #c4b5fd; }
-.feature-icon-box.purple svg { stroke: #7c3aed; fill: none; }
-.feature-icon-box.pink   { border-color: #f9a8d4; }
-.feature-icon-box.pink svg { stroke: #db2777; fill: none; }
-.links-section {
-  background: var(--bg-section);
-  padding: 64px 0;
-}
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  max-width: 720px;
-  margin: 0 auto;
-}
-.link-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px 24px;
-  color: var(--text);
+  font-size: 0.98rem;
+  transition: 0.2s;
+  border: none;
+  cursor: pointer;
   text-decoration: none;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
 }
-.link-card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
-  color: var(--text);
-  transform: translateY(-2px);
+.btn-line {
+  background: #fff;
+  color: var(--line-dark);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  position: relative;
 }
-.link-card-text h3 {
-  font-size: 1.08rem;
-  font-weight: 700;
-  margin-bottom: 4px;
+.btn-line:hover {
+  background: #f0fff5;
+  color: #008c3a;
 }
-.link-card-text p {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-}
-.link-card-arrow {
-  font-size: 1.4rem;
-  color: var(--primary);
-  font-weight: 700;
+.btn-line svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
   flex-shrink: 0;
 }
+
 .footer {
   background: #fff;
   border-top: 1px solid var(--border);
@@ -470,33 +450,25 @@ a:hover { color: var(--primary-dark); }
   font-size: 0.82rem;
   color: var(--text-muted);
 }
-.hidden {
-  display: none;
-}
+
 @media (max-width: 600px) {
-  .hero { height: min(50vh, 400px); }
-  .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
-  .carousel-btn.prev { left: 8px; }
-  .carousel-btn.next { right: 8px; }
-  .section { padding: 48px 0; }
-  .section-title { font-size: 1.35rem; }
-  .openchat-cta { padding: 40px 0; }
-  .features-section { padding: 56px 0 64px; }
-  .features-list { gap: 40px; }
-  .feature-icon-box { width: 64px; height: 64px; border-radius: 16px; }
-  .feature-icon-box svg { width: 28px; height: 28px; }
-  .feature-item h3 { font-size: 1.1rem; }
-  .links-section { padding: 48px 0; }
+  .page-hero { padding: 32px 0 28px; }
+  .section { padding: 44px 0; }
+  .step { padding: 18px 16px; gap: 14px; }
+  .step-num { width: 32px; height: 32px; font-size: 0.9rem; }
+  .copy-box { flex-wrap: wrap; }
 }
   </style>
 </head>
 <body>
+
   <header class="header">
     <div class="header-inner">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-block">DOLDO SERVER</span>
         <span class="logo-tag">【ドル鯖】</span>
       </a>
+
       <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
         <span></span>
         <span></span>
@@ -504,279 +476,263 @@ a:hover { color: var(--primary-dark); }
       </button>
     </div>
   </header>
+
   <nav class="side-menu" id="sideMenu">
     <div class="side-menu-header">
       <span>メニュー</span>
       <button class="menu-close" id="menuClose" aria-label="メニューを閉じる">×</button>
     </div>
+
     <ul class="side-menu-list">
-      <li><a href="#hero">トップ</a></li>
-      <li><a href="#openchat">オープンチャット</a></li>
-      <li><a href="#news">ニュース</a></li>
-      <li><a href="#features">鯖の特徴</a></li>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="index.html#line">LINEオープンチャット</a></li>
+      <li><a href="index.html#news">ニュース</a></li>
+      <li><a href="index.html#features">鯖の特徴</a></li>
       <li><a href="join.html">参加方法を確認</a></li>
       <li><a href="guidelines.html">利用規約 / ガイドライン</a></li>
-      <li><a href="contact.html">お問い合わせ</a></li>
-      <li><a href="unei.html">運営採用</a></li>
+      <li><a href="https://forms.gle/GoxPrE5DBtYSdn8e6" target="_blank" rel="noopener">お問い合わせ</a></li>
     </ul>
   </nav>
+
   <div class="menu-overlay" id="menuOverlay"></div>
-  <section class="hero" id="hero">
-    <div class="carousel" id="carousel">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide active">
-          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=1600&q=80');"></div>
-          <div class="slide-content">
-            <p class="slide-label">Minecraft 統合版</p>
-            <h1 class="slide-title">DOLDO SERVER</h1>
-            <p class="slide-subtitle">【ドル鯖】参加型サバイバルサーバー</p>
-            <a href="#openchat" class="btn btn-primary">オープンチャットに参加</a>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1600&q=80');"></div>
-          <div class="slide-content">
-            <p class="slide-label">Community</p>
-            <h1 class="slide-title">みんなで作る世界</h1>
-            <p class="slide-subtitle">建築・冒険・交流を楽しもう</p>
-            <a href="#features" class="btn btn-primary">特徴を見る</a>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1600&q=80');"></div>
-          <div class="slide-content">
-            <p class="slide-label">参加型</p>
-            <h1 class="slide-title">フレンド申請で参加</h1>
-            <p class="slide-subtitle">気軽に遊べるコミュニティ</p>
-            <a href="join.html" class="btn btn-primary">参加方法を確認</a>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-btn prev" id="prevBtn" aria-label="前のスライド">‹</button>
-      <button class="carousel-btn next" id="nextBtn" aria-label="次のスライド">›</button>
-      <div class="carousel-dots" id="carouselDots"></div>
+
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+    <div class="breadcrumb-inner">
+      <a href="index.html">トップ</a>
+      <span class="sep">/</span>
+      <span class="current">参加方法</span>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>参加方法</h1>
+      <p>参加型サバイバルです。フレンド申請だけで入れます。IP入力は不要です。</p>
     </div>
   </section>
-  <section class="openchat-cta" id="openchat">
+
+  <section class="section">
+    <div class="container">
+
+      <h2 class="section-title">参加の手順</h2>
+      <p class="section-lead">統合版ならどの端末からでも参加できます</p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Minecraft 統合版を起動</h3>
+            <p>スマホ・Switch・Windows・Xbox など、統合版（Bedrock）対応の端末で起動してください。Java版からは参加できません。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>フレンド検索で「Doldo BE」を探す</h3>
+            <p>ゲーム内のフレンド画面を開き、下の名前を検索してください。</p>
+
+            <div class="copy-box">
+              <code id="friendId">Doldo BE</code>
+              <button type="button" class="copy-btn" id="copyBtn" aria-label="コピー">コピー</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>フレンド申請を送る</h3>
+            <p>見つかったらフレンド申請を送信。承認され次第、フレンドのワールドから参加できます。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>ワールドに入る</h3>
+            <p>フレンド一覧からドル鯖のワールドを選択して参加。初回は少し時間がかかることがあります。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="name-box">
+        <strong>表示名は変更可能です（偽名OK）</strong>
+        Minecraft統合版では、ゲーム内の表示名（プロフィール名）を自由に変更できます。
+
+        <ul>
+          <li>本名を出す必要はありません</li>
+          <li>好きな名前・ニックネームで参加して大丈夫です</li>
+          <li>オープンチャット側の表示名も同様に変更可能です</li>
+        </ul>
+      </div>
+
+      <div class="greet-box">
+        <strong>参加時のお願い</strong>
+        入室したらチャットで軽く挨拶をしてください。みんなで楽しく遊ぶための基本マナーです。
+      </div>
+
+      <div class="note-box">
+        <strong>注意</strong>
+        参加前に利用規約・ガイドラインを必ず確認してください。荒らし行為などは即BAN対象です。ここはサーバーではなく、フレンド参加型のワールドです。
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-section); padding-top: 48px; padding-bottom: 56px;">
+    <div class="container">
+
+      <h2 class="section-title">対応端末</h2>
+      <p class="section-lead">以下の端末から参加できます</p>
+
+      <div class="platforms">
+
+        <div class="platform-card">
+          <div class="icon">📱</div>
+          <h3>スマートフォン</h3>
+          <p>iOS / Android</p>
+        </div>
+
+        <div class="platform-card">
+          <div class="icon">🎮</div>
+          <h3>Nintendo Switch</h3>
+          <p>統合版</p>
+        </div>
+
+        <div class="platform-card">
+          <div class="icon">💻</div>
+          <h3>Windows</h3>
+          <p>統合版 / ストア版</p>
+        </div>
+
+        <div class="platform-card">
+          <div class="icon">🟨</div>
+          <h3>Xbox</h3>
+          <p>Xbox One / Series</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="line-cta">
     <div class="container">
       <h2 class="section-title">わからないことはLINEへ</h2>
       <p class="section-lead">申請が通らない・参加できないなど、困ったときは気軽に聞いてください。</p>
-      <a href="https://line.me/ti/g2/m-35LWaRXXRocL6XmN3Xq7jRrvnJWPI-figSOQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="btn btn-openchat" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.286.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.27.173-.51.43-.595.063-.022.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+
+      <a href="https://line.me/ti/g2/m-35LWaRXXRocL6XmN3Xq7jRrvnJWPI-figSOQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+         class="btn btn-line"
+         target="_blank"
+         rel="noopener">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.286.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.27.173-.51.43-.595.063-.022.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+        </svg>
+
         LINEオープンチャットに参加
       </a>
     </div>
   </section>
-  <section class="section news-section" id="news">
-    <div class="container">
-      <h2 class="section-title">ニュース</h2>
-      <div class="news-list" id="newsList"></div>
-    </div>
-  </section>
-  <section class="features-section" id="features">
-    <div class="container">
-      <h2 class="section-title">この鯖の特徴</h2>
-      <div class="features-list">
-        <div class="feature-item">
-          <div class="feature-icon-box blue">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3>気軽に参加できる</h3>
-          <p>統合版対応。スマホ・Switch・Windowsなどから、フレンド申請するだけで入れます。IP入力は不要です。</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon-box green">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <h3>民度を大切に</h3>
-          <p>荒らしや迷惑行為は排除しています。安心して建築・冒険・交流を楽しめる環境を維持しています。</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon-box amber">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v4"/>
-              <path d="M12 18v4"/>
-              <path d="M4.93 4.93l2.83 2.83"/>
-              <path d="M16.24 16.24l2.83 2.83"/>
-              <path d="M2 12h4"/>
-              <path d="M18 12h4"/>
-              <path d="M4.93 19.07l2.83-2.83"/>
-              <path d="M16.24 7.76l2.83-2.83"/>
-              <circle cx="12" cy="12" r="4"/>
-            </svg>
-          </div>
-          <h3>自分のペースで進行可能</h3>
-          <p>サバイバルをベースに、急かされることなく自分のペースで建築や探索ができます。他人の建築への配慮も大切にしています。</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon-box purple">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-            </svg>
-          </div>
-          <h3>イベント・交流</h3>
-          <p>たまにイベントや企画を実施しています。参加者同士の交流も、鯖の大事な要素のひとつです。</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon-box pink">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
-          <h3>困ったときはオープンチャットへ</h3>
-          <p>質問・報告・相談はオープンチャットで受け付けています。わからないことがあっても気軽に聞いてください。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="links-section" id="links">
-    <div class="container">
-      <h2 class="section-title">各種ページ</h2>
-      <p class="section-lead">参加前に確認しておいてください</p>
-      <div class="links-grid">
-        <a href="join.html" class="link-card">
-          <div class="link-card-text">
-            <h3>参加方法を確認</h3>
-            <p>フレンド申請の手順・対応端末など</p>
-          </div>
-          <span class="link-card-arrow">→</span>
-        </a>
-        <a href="guidelines.html" class="link-card">
-          <div class="link-card-text">
-            <h3>利用規約 / ガイドライン</h3>
-            <p>ルール・禁止事項・注意事項</p>
-          </div>
-          <span class="link-card-arrow">→</span>
-        </a>
-        <a href="contact.html" class="link-card">
-          <div class="link-card-text">
-            <h3>お問い合わせ</h3>
-            <p>質問・報告はこちら</p>
-          </div>
-          <span class="link-card-arrow">→</span>
-        </a>
-        <a href="unei.html" class="link-card">
-          <div class="link-card-text">
-            <h3>運営採用</h3>
-            <p>運営メンバーの募集について</p>
-          </div>
-          <span class="link-card-arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
+
   <footer class="footer">
     <div class="container">
       <p class="footer-logo">DOLDO SERVER</p>
       <p class="footer-copy">&copy; 2026 DOLDO SERVER 【ドル鯖】</p>
     </div>
   </footer>
-  <script src="news.js"></script>
-  <script>
-function renderNews() {
-  const list = document.getElementById("newsList");
-  if (!list || typeof newsData === "undefined") return;
-  const items = newsData.slice(0, 3);
-  list.innerHTML = items.map((item) => {
-    const d = new Date(item.date);
-    const dateStr = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日";
-    const badge = item.important ? '<span class="news-badge">重要</span>' : "";
-    return '<article class="news-item ' + (item.important ? "important" : "") + '"><div class="news-meta">' + badge + '<time>' + dateStr + '</time></div><h3 class="news-title">' + item.title + '</h3><p class="news-excerpt">' + item.excerpt + '</p></article>';
-  }).join("");
-}
-document.addEventListener("DOMContentLoaded", function() {
-  renderNews();
-  initMenu();
-  initCarousel();
-  initSmoothScroll();
 
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  initMenu();
+  initCopy();
 });
+
 function initMenu() {
   var toggle = document.getElementById("menuToggle");
   var closeBtn = document.getElementById("menuClose");
   var menu = document.getElementById("sideMenu");
   var overlay = document.getElementById("menuOverlay");
+
   if (!toggle || !menu) return;
+
   function open() {
     menu.classList.add("open");
     overlay.classList.add("open");
     document.body.style.overflow = "hidden";
   }
+
   function close() {
     menu.classList.remove("open");
     overlay.classList.remove("open");
     document.body.style.overflow = "";
   }
+
   toggle.addEventListener("click", open);
   closeBtn.addEventListener("click", close);
   overlay.addEventListener("click", close);
-  menu.querySelectorAll("a").forEach(function(a) { a.addEventListener("click", close); });
-}
-function initCarousel() {
-  var track = document.getElementById("carouselTrack");
-  var prevBtn = document.getElementById("prevBtn");
-  var nextBtn = document.getElementById("nextBtn");
-  var dotsContainer = document.getElementById("carouselDots");
-  if (!track) return;
-  var slides = track.querySelectorAll(".carousel-slide");
-  var total = slides.length;
-  var current = 0;
-  var timer = null;
-  if (dotsContainer) {
-    dotsContainer.innerHTML = "";
-    for (var i = 0; i < total; i++) {
-      var btn = document.createElement("button");
-      if (i === 0) btn.classList.add("active");
-      (function(idx) { btn.addEventListener("click", function() { goTo(idx); }); })(i);
-      dotsContainer.appendChild(btn);
-    }
-  }
-  function goTo(index) {
-    current = (index + total) % total;
-    track.style.transform = "translateX(-" + (current * 100) + "%)";
-    if (dotsContainer) {
-      dotsContainer.querySelectorAll("button").forEach(function(d, i) { d.classList.toggle("active", i === current); });
-    }
-    resetTimer();
-  }
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
-  function resetTimer() {
-    if (timer) clearInterval(timer);
-    timer = setInterval(next, 6000);
-  }
-  if (prevBtn) prevBtn.addEventListener("click", prev);
-  if (nextBtn) nextBtn.addEventListener("click", next);
-  var startX = 0;
-  track.addEventListener("touchstart", function(e) { startX = e.changedTouches[0].screenX; }, { passive: true });
-  track.addEventListener("touchend", function(e) {
-    var diff = e.changedTouches[0].screenX - startX;
-    if (Math.abs(diff) > 50) { if (diff > 0) prev(); else next(); }
-  }, { passive: true });
-  resetTimer();
-}
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener("click", function(e) {
-      var href = this.getAttribute("href");
-      if (href === "#") return;
-      var target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        var top = target.getBoundingClientRect().top + window.pageYOffset - 68;
-        window.scrollTo({ top: top, behavior: "smooth" });
-      }
-    });
+
+  menu.querySelectorAll("a").forEach(function(a) {
+    a.addEventListener("click", close);
   });
 }
+
+function initCopy() {
+  var btn = document.getElementById("copyBtn");
+  var idEl = document.getElementById("friendId");
+
+  if (!btn || !idEl) return;
+
+  btn.addEventListener("click", function() {
+    var text = idEl.textContent.trim();
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = "コピー済み";
+        btn.classList.add("copied");
+
+        setTimeout(function() {
+          btn.textContent = "コピー";
+          btn.classList.remove("copied");
+        }, 1800);
+
+      }).catch(function() {
+        fallbackCopy(text, btn);
+      });
+
+    } else {
+      fallbackCopy(text, btn);
+    }
+  });
+}
+
+function fallbackCopy(text, btn) {
+  var ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+
+  document.body.appendChild(ta);
+  ta.select();
+
+  try {
+    document.execCommand("copy");
+
+    btn.textContent = "コピー済み";
+    btn.classList.add("copied");
+
+    setTimeout(function() {
+      btn.textContent = "コピー";
+      btn.classList.remove("copied");
+    }, 1800);
+
+  } catch (e) {}
+
+  document.body.removeChild(ta);
+}
   </script>
+
 </body>
 </html>

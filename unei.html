@@ -1,778 +1,1070 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>運営採用 | DOLDO SERVER【ドル鯖】</title>
-  <meta name="description" content="DOLDO SERVER（ドル鯖）の運営メンバー募集。総務・コマンド・人事・建築・宣伝など、各部門で一緒にサーバーを運営するメンバーを募集しています。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-  <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --accent: #f59e0b;
-  --bg: #ffffff;
-  --bg-card: #ffffff;
-  --bg-section: #f8fafc;
-  --text: #1e293b;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
-  --radius: 10px;
-  --header-h: 60px;
-  --line: #06C755;
-  --line-dark: #00a644;
-}
-
-html {
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable;
-}
-
-body {
-  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--primary-dark);
-}
-
-.container {
-  width: min(960px, 92%);
-  margin: 0 auto;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--header-h);
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  z-index: 1000;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: min(1100px, 94%);
-  margin: 0 auto;
-}
-
-.logo {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 900;
-}
-
-.logo:hover {
-  color: var(--text);
-}
-
-.logo-block {
-  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
-  letter-spacing: 0.06em;
-  color: var(--text);
-}
-
-.logo-tag {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.menu-toggle {
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 260px;
-  height: 100vh;
-  background: #fff;
-  border-left: 1px solid var(--border);
-  z-index: 1100;
-  transition: right 0.25s ease;
-  display: flex;
-  flex-direction: column;
-  box-shadow: -4px 0 20px rgba(0,0,0,0.06);
-}
-
-.side-menu.open {
-  right: 0;
-}
-
-.side-menu-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border);
-  font-weight: 700;
-}
-
-.menu-close {
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.6rem;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.side-menu-list {
-  list-style: none;
-  padding: 12px 0;
-}
-
-.side-menu-list a {
-  display: block;
-  padding: 12px 24px;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.side-menu-list a:hover {
-  background: var(--bg-section);
-  color: var(--primary);
-}
-
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: 1050;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.25s;
-}
-
-.menu-overlay.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* =========================
-   BREADCRUMB
-========================= */
-
-.breadcrumb {
-  margin-top: var(--header-h);
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  padding: 10px 0;
-}
-
-.breadcrumb-inner {
-  width: min(1100px, 94%);
-  margin: 0 auto;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.breadcrumb-inner a {
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.breadcrumb-inner a:hover {
-  color: var(--primary);
-}
-
-.breadcrumb-inner .sep {
-  color: #cbd5e1;
-}
-
-.breadcrumb-inner .current {
-  color: var(--text);
-  font-weight: 600;
-}
-
-/* =========================
-   PAGE HERO
-========================= */
-
-.page-hero {
-  background: var(--bg-section);
-  padding: 40px 0 36px;
-  text-align: center;
-  border-bottom: 1px solid var(--border);
-}
-
-.page-hero h1 {
-  font-size: clamp(1.5rem, 4vw, 1.9rem);
-  font-weight: 900;
-  letter-spacing: 0.03em;
-  margin-bottom: 8px;
-}
-
-.page-hero p {
-  color: var(--text-muted);
-  font-size: 0.98rem;
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section {
-  padding: 56px 0;
-}
-
-.section-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: var(--primary);
-  margin: 12px auto 0;
-  border-radius: 2px;
-}
-
-.section-lead {
-  text-align: center;
-  color: var(--text-muted);
-  margin-bottom: 36px;
-  font-size: 0.95rem;
-}
-
-/* =========================
-   DEPARTMENT CARDS
-========================= */
-
-.departments {
-  max-width: 720px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.department {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 22px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-
-.department:hover {
-  border-color: #93c5fd;
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
-  transform: translateY(-2px);
-}
-
-.department-name {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.department-number {
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.department h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.department p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.75;
-}
-
-/* 副主だけ少し特別に */
-
-.department.main-sub {
-  grid-column: 1 / -1;
-  background: #eff6ff;
-  border-color: #bfdbfe;
-}
-
-.department.main-sub .department-number {
-  background: #1d4ed8;
-}
-
-.department.main-sub h3 {
-  color: #1e3a8a;
-}
-
-/* =========================
-   RECRUIT INFO
-========================= */
-
-.recruit-info {
-  max-width: 720px;
-  margin: 36px auto 0;
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  border-radius: var(--radius);
-  padding: 20px 22px;
-}
-
-.recruit-info strong {
-  display: block;
-  color: #78350f;
-  margin-bottom: 6px;
-  font-size: 1rem;
-}
-
-.recruit-info p {
-  color: #92400e;
-  font-size: 0.9rem;
-  line-height: 1.75;
-}
-
-/* =========================
-   APPLICATION CTA
-========================= */
-
-.application {
-  background: var(--bg-section);
-  border-top: 1px solid var(--border);
-  padding: 64px 0 68px;
-  text-align: center;
-}
-
-.application h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.application h2::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: var(--primary);
-  margin: 12px auto 0;
-  border-radius: 2px;
-}
-
-.application p {
-  color: var(--text-muted);
-  font-size: 0.94rem;
-  margin-bottom: 24px;
-}
-
-.application-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: var(--primary);
-  color: #fff;
-  padding: 13px 30px;
-  border-radius: 999px;
-  font-size: 0.98rem;
-  font-weight: 700;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-}
-
-.application-button:hover {
-  background: var(--primary-dark);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
-}
-
-.application-arrow {
-  font-size: 1.1rem;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-  background: #fff;
-  border-top: 1px solid var(--border);
-  padding: 28px 0;
-  text-align: center;
-}
-
-.footer-logo {
-  font-weight: 900;
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
-  margin-bottom: 6px;
-}
-
-.footer-copy {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-  .page-hero {
-    padding: 32px 0 28px;
-  }
-
-  .section {
-    padding: 44px 0;
-  }
-
-  .departments {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .department {
-    padding: 20px 18px;
-  }
-
-  .department.main-sub {
-    grid-column: auto;
-  }
-
-  .application {
-    padding: 52px 0 58px;
-  }
-
-  .application-button {
-    width: min(100%, 320px);
-  }
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>運営採用 | DOLDO SERVER【ドル鯖】</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+
+            --bg: #ffffff;
+            --bg-section: #f8fafc;
+
+            --text: #1e293b;
+            --muted: #64748b;
+
+            --border: #e2e8f0;
+
+            --radius: 10px;
+            --header-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Noto Sans JP", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .header-inner {
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        .logo-main {
+            font-size: 18px;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .menu-button {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fff;
+
+            cursor: pointer;
+        }
+
+        .menu-button span {
+            width: 19px;
+            height: 2px;
+            background: var(--text);
+        }
+
+        /* =========================
+           SIDE MENU
+        ========================= */
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+
+            width: 300px;
+            height: 100vh;
+
+            background: #fff;
+            border-left: 1px solid var(--border);
+
+            z-index: 1100;
+
+            padding: 80px 24px 24px;
+
+            transition: right 0.25s ease;
+            overflow-y: auto;
+        }
+
+        .side-menu.open {
+            right: 0;
+        }
+
+        .side-menu-title {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .side-menu a {
+            display: block;
+            padding: 13px 14px;
+
+            border-bottom: 1px solid var(--border);
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .side-menu a:hover {
+            background: var(--bg-section);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(15, 23, 42, 0.3);
+
+            z-index: 1050;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: opacity 0.25s ease;
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            padding-top: var(--header-height);
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+           BREADCRUMB
+        ========================= */
+
+        .breadcrumb {
+            padding: 18px 0;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+        }
+
+        /* =========================
+           PAGE HERO
+        ========================= */
+
+        .page-hero {
+            padding: 65px 0 70px;
+            background: var(--bg-section);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-hero h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .page-hero p {
+            color: var(--muted);
+            font-size: 15px;
+            max-width: 700px;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-title {
+            margin-bottom: 36px;
+        }
+
+        .section-title h2 {
+            font-size: 25px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           DEPARTMENT
+        ========================= */
+
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .department {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .department-name {
+            padding: 18px 20px;
+
+            background: var(--bg-section);
+            border-bottom: 1px solid var(--border);
+
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .department-body {
+            padding: 20px;
+        }
+
+        .department-row {
+            display: grid;
+            grid-template-columns: 145px 1fr;
+            gap: 16px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .department-row:first-child {
+            padding-top: 0;
+        }
+
+        .department-row:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .department-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .department-value {
+            font-size: 14px;
+        }
+
+        /* STATUS */
+
+        .status {
+            display: inline-block;
+
+            padding: 3px 10px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .status.open {
+            background: #eff6ff;
+            color: var(--primary);
+            border: 1px solid #bfdbfe;
+        }
+
+        .status.closed {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* =========================
+           RECRUITMENT FLOW
+        ========================= */
+
+        .recruitment {
+            background: var(--bg-section);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            padding: 25px 22px;
+
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--primary);
+
+            margin-bottom: 8px;
+        }
+
+        .step h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           APPLICATION
+        ========================= */
+
+        .application {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .application h2 {
+            font-size: 27px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .application p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .application-button {
+            display: inline-block;
+
+            padding: 13px 34px;
+
+            background: #fff;
+            color: var(--text);
+
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.2s ease;
+        }
+
+        .application-button:hover {
+            background: var(--bg-section);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 35px 0;
+            border-top: 1px solid var(--border);
+            background: #fff;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .footer-copy {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 760px) {
+
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            .container {
+                width: min(100% - 28px, 1100px);
+            }
+
+            .page-hero {
+                padding: 50px 0 55px;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .departments {
+                grid-template-columns: 1fr;
+            }
+
+            .department-row {
+                grid-template-columns: 1fr;
+                gap: 3px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .side-menu {
+                width: 280px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header class="header">
+<header>
     <div class="header-inner">
 
-      <a href="index.html" class="logo">
-        <span class="logo-block">DOLDO SERVER</span>
-        <span class="logo-tag">【ドル鯖】</span>
-      </a>
+        <a href="index.html" class="logo">
+            <span class="logo-main">DOLDO SERVER</span>
+            <span class="logo-sub">【ドル鯖】</span>
+        </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button class="menu-button" id="menuButton" aria-label="メニュー">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
     </div>
-  </header>
+</header>
 
-  <nav class="side-menu" id="sideMenu">
 
-    <div class="side-menu-header">
-      <span>メニュー</span>
-      <button class="menu-close" id="menuClose" aria-label="メニューを閉じる">×</button>
+<!-- SIDE MENU -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<nav class="side-menu" id="sideMenu">
+
+    <div class="side-menu-title">
+        MENU
     </div>
 
-    <ul class="side-menu-list">
-      <li><a href="index.html">トップ</a></li>
-      <li><a href="index.html#openchat">LINEオープンチャット</a></li>
-      <li><a href="index.html#news">ニュース</a></li>
-      <li><a href="index.html#features">鯖の特徴</a></li>
-      <li><a href="join.html">参加方法を確認</a></li>
-      <li><a href="guidelines.html">利用規約 / ガイドライン</a></li>
-      <li><a href="contact.html">お問い合わせ</a></li>
-      <li><a href="unei.html">運営採用</a></li>
-    </ul>
+    <a href="index.html">ホーム</a>
+    <a href="index.html#openchat">オープンチャット</a>
+    <a href="index.html#news">お知らせ</a>
+    <a href="index.html#features">特徴</a>
 
-  </nav>
+    <a href="join.html">参加方法</a>
+    <a href="guidelines.html">ルール</a>
+    <a href="unei.html">運営採用</a>
+    <a href="contact.html">お問い合わせ</a>
 
-  <div class="menu-overlay" id="menuOverlay"></div>
+</nav>
 
-  <nav class="breadcrumb" aria-label="パンくずリスト">
-    <div class="breadcrumb-inner">
-      <a href="index.html">トップ</a>
-      <span class="sep">/</span>
-      <span class="current">運営採用</span>
-    </div>
-  </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1>運営採用</h1>
-      <p>DOLDO SERVERを一緒に運営してくれるメンバーを募集しています。</p>
-    </div>
-  </section>
+<main>
 
-  <section class="section">
+    <!-- BREADCRUMB -->
 
     <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">ホーム</a>
+            <span> / </span>
+            <span>運営採用</span>
+        </div>
+    </div>
 
-      <h2 class="section-title">募集部門</h2>
-      <p class="section-lead">それぞれの得意分野を活かして活動できます</p>
 
-      <div class="departments">
+    <!-- HERO -->
 
-        <div class="department main-sub">
+    <div class="page-hero">
 
-          <div class="department-name">
-            <div class="department-number">1</div>
-            <h3>副主</h3>
-          </div>
+        <div class="container">
 
-          <p>
-            サーバー運営全体を支える役職です。
-            主に運営方針の確認や各部門との連携、重要な判断の補助など、
-            サーバー全体が円滑に動くようにサポートします。
-          </p>
+            <h1>運営採用</h1>
+
+            <p>
+                DOLDO SERVERでは、サーバー運営を一緒に支えてくれる
+                運営メンバーを募集しています。
+            </p>
 
         </div>
-
-        <div class="department">
-
-          <div class="department-name">
-            <div class="department-number">2</div>
-            <h3>総務部門</h3>
-          </div>
-
-          <p>
-            運営全体に関わる事務や管理を担当する部門です。
-            各部門との連絡・調整、運営に必要な情報の整理など、
-            サーバー運営を裏側から支えます。
-          </p>
-
-        </div>
-
-        <div class="department">
-
-          <div class="department-name">
-            <div class="department-number">3</div>
-            <h3>コマンド部門</h3>
-          </div>
-
-          <p>
-            Minecraftのコマンドやシステム制作を担当する部門です。
-            新しい機能の追加、既存システムの改善、
-            サーバー内で使用するコマンドの作成などを行います。
-          </p>
-
-        </div>
-
-        <div class="department">
-
-          <div class="department-name">
-            <div class="department-number">4</div>
-            <h3>コマンド補佐部門</h3>
-          </div>
-
-          <p>
-            コマンド部門をサポートする部門です。
-            動作確認やテスト、アイデアの提案、
-            コマンド制作の補助などを担当します。
-            コマンドを勉強しながら参加したい方にも向いています。
-          </p>
-
-        </div>
-
-        <div class="department">
-
-          <div class="department-name">
-            <div class="department-number">5</div>
-            <h3>人事部門</h3>
-          </div>
-
-          <p>
-            運営メンバーに関する管理や採用を担当する部門です。
-            応募者の確認、メンバーの管理、
-            運営内での連絡や人員に関する調整などを行います。
-          </p>
-
-        </div>
-
-        <div class="department">
-
-          <div class="department-name">
-            <div class="department-number">6</div>
-            <h3>建築部門</h3>
-          </div>
-
-          <p>
-            サーバー内の建築物や景観づくりを担当する部門です。
-            ロビーや施設、イベント会場などの建築を行い、
-            DOLDO SERVERの世界をより魅力的にしていきます。
-          </p>
-
-        </div>
-
-        <div class="department">
-
-          <div class="department-name">
-            <div class="department-number">7</div>
-            <h3>宣伝部門</h3>
-          </div>
-
-          <p>
-            DOLDO SERVERをより多くの人に知ってもらうための活動を担当します。
-            SNSやWebサイトなどを活用した宣伝、
-            イベントの告知や広報活動などを行います。
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="recruit-info">
-
-        <strong>応募について</strong>
-
-        <p>
-          自分に合っていると思う部門を選んで応募してください。
-          経験や技術だけでなく、DOLDO SERVERを一緒に盛り上げたいという気持ちも大切にしています。
-          応募内容を確認したうえで、運営側で選考を行います。
-        </p>
-
-      </div>
 
     </div>
 
-  </section>
 
-  <section class="application">
+    <!-- DEPARTMENTS -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>募集部門</h2>
+                <p>現在募集している部門と仕事内容をご確認ください。</p>
+            </div>
+
+
+            <div class="departments">
+
+                <!-- 副主 -->
+
+                <div class="department">
+
+                    <div class="department-name">
+                        副主
+                    </div>
+
+                    <div class="department-body">
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                必要スキル・資格
+                            </div>
+
+                            <div class="department-value">
+                                サーバー運営に関する知識・経験、責任感
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                仕事内容
+                            </div>
+
+                            <div class="department-value">
+                                サーバー全体の運営補助、各部門の管理、運営方針の決定補助などを行います。
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                応募状況
+                            </div>
+
+                            <div class="department-value">
+                                <span class="status closed">応募終了</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 総務 -->
+
+                <div class="department">
+
+                    <div class="department-name">
+                        総務部門
+                    </div>
+
+                    <div class="department-body">
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                必要スキル・資格
+                            </div>
+
+                            <div class="department-value">
+                                コミュニケーション能力、整理・管理能力
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                仕事内容
+                            </div>
+
+                            <div class="department-value">
+                                サーバー運営に関する事務作業、情報整理、各部門との連絡・調整などを行います。
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                応募状況
+                            </div>
+
+                            <div class="department-value">
+                                <span class="status open">応募中</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- コマンド -->
+
+                <div class="department">
+
+                    <div class="department-name">
+                        コマンド部門
+                    </div>
+
+                    <div class="department-body">
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                必要スキル・資格
+                            </div>
+
+                            <div class="department-value">
+                                Minecraftコマンドに関する知識・経験
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                仕事内容
+                            </div>
+
+                            <div class="department-value">
+                                サーバー内で使用するコマンドの制作、新機能の開発、既存システムの改善などを行います。
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                応募状況
+                            </div>
+
+                            <div class="department-value">
+                                <span class="status open">応募中</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- コマンド補佐 -->
+
+                <div class="department">
+
+                    <div class="department-name">
+                        コマンド補佐部門
+                    </div>
+
+                    <div class="department-body">
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                必要スキル・資格
+                            </div>
+
+                            <div class="department-value">
+                                Minecraftコマンドの基本知識、学習意欲
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                仕事内容
+                            </div>
+
+                            <div class="department-value">
+                                コマンド部門の制作補助、動作確認、アイデア提案、テストなどを行います。
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                応募状況
+                            </div>
+
+                            <div class="department-value">
+                                <span class="status open">応募中</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 人事 -->
+
+                <div class="department">
+
+                    <div class="department-name">
+                        人事部門
+                    </div>
+
+                    <div class="department-body">
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                必要スキル・資格
+                            </div>
+
+                            <div class="department-value">
+                                コミュニケーション能力、判断力、責任感
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                仕事内容
+                            </div>
+
+                            <div class="department-value">
+                                運営メンバーの募集・管理、応募者の確認、メンバーの配置や連絡などを行います。
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                応募状況
+                            </div>
+
+                            <div class="department-value">
+                                <span class="status open">応募中</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 建築 -->
+
+                <div class="department">
+
+                    <div class="department-name">
+                        建築部門
+                    </div>
+
+                    <div class="department-body">
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                必要スキル・資格
+                            </div>
+
+                            <div class="department-value">
+                                Minecraftでの建築経験・建築技術
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                仕事内容
+                            </div>
+
+                            <div class="department-value">
+                                サーバー内の建築物、ロビー、施設、イベント会場などの制作を行います。
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                応募状況
+                            </div>
+
+                            <div class="department-value">
+                                <span class="status open">応募中</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 宣伝 -->
+
+                <div class="department">
+
+                    <div class="department-name">
+                        宣伝部門
+                    </div>
+
+                    <div class="department-body">
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                必要スキル・資格
+                            </div>
+
+                            <div class="department-value">
+                                SNS・Webに関する基本的な知識、発信力
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                仕事内容
+                            </div>
+
+                            <div class="department-value">
+                                サーバーの宣伝、イベント告知、WebサイトやSNSを利用した情報発信などを行います。
+                            </div>
+                        </div>
+
+                        <div class="department-row">
+                            <div class="department-label">
+                                応募状況
+                            </div>
+
+                            <div class="department-value">
+                                <span class="status open">応募中</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECRUITMENT FLOW -->
+
+    <section class="recruitment">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>採用段階</h2>
+                <p>応募から採用までの流れです。</p>
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>応募</h3>
+
+                    <p>
+                        下の応募ページから応募します。
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>実技試験</h3>
+
+                    <p>
+                        応募を通過した方には、マイクラ内にて実際に実技試験を行ってもらいます。
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>採用</h3>
+
+                    <p>
+                        実技試験を通過した方が運営メンバーとして採用されます。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- APPLICATION -->
+
+    <section class="application">
+
+        <div class="container">
+
+            <h2>運営メンバーに応募する</h2>
+
+            <p>
+                応募を希望する方は、以下のページから応募してください。
+            </p>
+
+            <a
+                class="application-button"
+                href="https://forms.gle/8KsMGkqpE3rn6q8x6"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                採用ページへ
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
 
     <div class="container">
 
-      <h2>運営に応募する</h2>
+        <div class="footer-inner">
 
-      <p>
-        応募フォームから必要事項を入力してください。
-      </p>
+            <div class="footer-logo">
+                DOLDO SERVER【ドル鯖】
+            </div>
 
-      <a
-        href="https://forms.gle/8KsMGkqpE3rn6q8x6"
-        class="application-button"
-        target="_blank"
-        rel="noopener"
-      >
-        応募ページへ
-        <span class="application-arrow">→</span>
-      </a>
+            <div class="footer-copy">
+                © DOLDO SERVER. All Rights Reserved.
+            </div>
+
+        </div>
 
     </div>
 
-  </section>
+</footer>
 
-  <footer class="footer">
 
-    <div class="container">
+<script>
 
-      <p class="footer-logo">DOLDO SERVER</p>
+    const menuButton = document.getElementById("menuButton");
+    const sideMenu = document.getElementById("sideMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
 
-      <p class="footer-copy">
-        &copy; 2026 DOLDO SERVER 【ドル鯖】
-      </p>
+    function openMenu() {
+        sideMenu.classList.add("open");
+        menuOverlay.classList.add("open");
+    }
 
-    </div>
+    function closeMenu() {
+        sideMenu.classList.remove("open");
+        menuOverlay.classList.remove("open");
+    }
 
-  </footer>
+    menuButton.addEventListener("click", () => {
 
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-  initMenu();
-});
+        if (sideMenu.classList.contains("open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
 
-function initMenu() {
+    });
 
-  var toggle = document.getElementById("menuToggle");
-  var closeBtn = document.getElementById("menuClose");
-  var menu = document.getElementById("sideMenu");
-  var overlay = document.getElementById("menuOverlay");
+    menuOverlay.addEventListener("click", closeMenu);
 
-  if (!toggle || !menu) return;
+    document.querySelectorAll(".side-menu a").forEach(link => {
 
-  function open() {
-    menu.classList.add("open");
-    overlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
+        link.addEventListener("click", () => {
+            closeMenu();
+        });
 
-  function close() {
-    menu.classList.remove("open");
-    overlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
+    });
 
-  toggle.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
-  overlay.addEventListener("click", close);
-
-  menu.querySelectorAll("a").forEach(function(a) {
-    a.addEventListener("click", close);
-  });
-}
-  </script>
+</script>
 
 </body>
 </html>
-```

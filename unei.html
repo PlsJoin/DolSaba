@@ -5,619 +5,716 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>運営採用 | DOLDO SERVER【ドル鯖】</title>
+  <meta name="description" content="DOLDO SERVER（ドル鯖）の運営メンバー募集ページ。各部門の仕事内容や必要スキル、採用までの流れを確認できます。">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --primary-light: #eff6ff;
-      --accent: #f59e0b;
-
-      --bg: #ffffff;
-      --bg-card: #ffffff;
-      --bg-section: #f8fafc;
-
-      --text: #1e293b;
-      --text-muted: #64748b;
-
-      --border: #e2e8f0;
-
-      --radius: 10px;
-      --header-h: 60px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Noto Sans JP", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(960px, 92%);
-      margin: 0 auto;
-    }
-
-    /* =========================
-       Header
-    ========================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--header-h);
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-    }
-
-    .header-inner {
-      height: 100%;
-      width: min(960px, 92%);
-      margin: 0 auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-weight: 900;
-      letter-spacing: 0.02em;
-    }
-
-    .logo-main {
-      font-size: 1.05rem;
-    }
-
-    .logo-sub {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    /* =========================
-       Hamburger
-    ========================= */
-
-    .menu-button {
-      width: 42px;
-      height: 42px;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .menu-button span {
-      width: 21px;
-      height: 2px;
-      background: var(--text);
-      display: block;
-      transition: 0.25s;
-    }
-
-    /* =========================
-       Side Menu
-    ========================= */
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.35);
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.25s;
-      z-index: 1100;
-    }
-
-    .side-menu {
-      position: fixed;
-      top: 0;
-      right: -280px;
-
-      width: 260px;
-      height: 100vh;
-
-      background: #fff;
-      border-left: 1px solid var(--border);
-
-      padding: 76px 22px 24px;
-
-      transition: 0.3s ease;
-      z-index: 1200;
-    }
-
-    .side-menu.active {
-      right: 0;
-    }
-
-    .menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .side-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .side-menu li {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .side-menu a {
-      display: block;
-      padding: 13px 4px;
-      font-size: 0.92rem;
-      font-weight: 500;
-      transition: 0.2s;
-    }
-
-    .side-menu a:hover {
-      color: var(--primary);
-    }
-
-    /* =========================
-       Breadcrumb
-    ========================= */
-
-    .breadcrumb {
-      margin-top: var(--header-h);
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      padding: 10px 0;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .breadcrumb-inner {
-      width: min(960px, 92%);
-      margin: 0 auto;
-    }
-
-    /* =========================
-       Hero
-    ========================= */
-
-    .page-hero {
-      background: var(--bg-section);
-      padding: 40px 0 36px;
-      text-align: center;
-    }
-
-    .page-hero h1 {
-      margin: 0 0 8px;
-      font-size: 1.8rem;
-      font-weight: 900;
-      letter-spacing: 0.02em;
-    }
-
-    .page-hero p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-
-    /* =========================
-       Common Section
-    ========================= */
-
-    .section {
-      padding: 56px 0;
-    }
-
-    .section-title {
-      position: relative;
-      margin: 0;
-      text-align: center;
-      font-size: 1.35rem;
-      font-weight: 900;
-    }
-
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 40px;
-      height: 3px;
-      background: var(--primary);
-      margin: 10px auto 0;
-      border-radius: 999px;
-    }
-
-    .section-lead {
-      margin: 14px auto 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* =========================
-       Department
-    ========================= */
-
-    .department-grid {
-      max-width: 760px;
-      margin: 34px auto 0;
-
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .department-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .department-card:hover {
-      transform: translateY(-2px);
-      border-color: #cbd5e1;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
-    }
-
-    .department-card.full {
-      grid-column: 1 / -1;
-    }
-
-    .department-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-
-      margin-bottom: 18px;
-    }
-
-    .department-name {
-      margin: 0;
-      font-size: 1.05rem;
-      font-weight: 900;
-    }
-
-    .status {
-      flex-shrink: 0;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 4px 9px;
-      border-radius: 999px;
-
-      font-size: 0.7rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .status.open {
-      background: #eff6ff;
-      color: var(--primary);
-      border: 1px solid #dbeafe;
-    }
-
-    .status.closed {
-      background: #f1f5f9;
-      color: #64748b;
-      border: 1px solid #e2e8f0;
-    }
-
-    .department-info {
-      display: grid;
-      gap: 13px;
-    }
-
-    .info-row {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 14px;
-    }
-
-    .info-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
-
-    .info-text {
-      margin: 0;
-      font-size: 0.84rem;
-    }
-
-    /* =========================
-       Recruitment Flow
-    ========================= */
-
-    .flow-section {
-      background: var(--bg-section);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .flow {
-      max-width: 760px;
-      margin: 34px auto 0;
-
-      display: grid;
-      gap: 14px;
-    }
-
-    .flow-item {
-      position: relative;
-
-      display: grid;
-      grid-template-columns: 58px 1fr;
-      gap: 18px;
-
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-    }
-
-    .flow-number {
-      width: 42px;
-      height: 42px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-      background: var(--primary-light);
-      color: var(--primary);
-
-      font-size: 0.95rem;
-      font-weight: 900;
-    }
-
-    .flow-content h3 {
-      margin: 1px 0 5px;
-      font-size: 1rem;
-      font-weight: 900;
-    }
-
-    .flow-content p {
-      margin: 0;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
-
-    .recruit-link {
-      display: inline-block;
-      margin-top: 10px;
-
-      color: var(--primary);
-      font-size: 0.84rem;
-      font-weight: 700;
-
-      transition: 0.2s;
-    }
-
-    .recruit-link:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
-    }
-
-    /* =========================
-       Application
-    ========================= */
-
-    .apply-section {
-      background: var(--bg-section);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .apply-box {
-      position: relative;
-
-      max-width: 760px;
-      margin: 34px auto 0;
-
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-
-      padding: 34px 30px;
-
-      text-align: center;
-
-      overflow: hidden;
-    }
-
-    .apply-box::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: var(--primary);
-    }
-
-    .apply-kicker {
-      display: block;
-      margin-bottom: 6px;
-
-      color: var(--primary);
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    .apply-box h2 {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 900;
-    }
-
-    .apply-box p {
-      margin: 10px 0 22px;
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
-    .apply-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-
-      min-width: 230px;
-      padding: 12px 22px;
-
-      background: var(--primary);
-      color: #fff;
-
-      border-radius: 6px;
-
-      font-size: 0.9rem;
-      font-weight: 700;
-
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .apply-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.18);
-    }
-
-    .apply-button span {
-      font-size: 1rem;
-    }
-
-    /* =========================
-       Footer
-    ========================= */
-
-    footer {
-      background: #fff;
-      border-top: 1px solid var(--border);
-      padding: 28px 0;
-      text-align: center;
-    }
-
-    .footer-title {
-      margin: 0 0 5px;
-      font-size: 0.9rem;
-      font-weight: 900;
-    }
-
-    .footer-copy {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.72rem;
-    }
-
-    /* =========================
-       Mobile
-    ========================= */
-
-    @media (max-width: 600px) {
-      .page-hero {
-        padding: 34px 0 30px;
-      }
-
-      .page-hero h1 {
-        font-size: 1.5rem;
-      }
-
-      .section {
-        padding: 44px 0;
-      }
-
-      .department-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .department-card.full {
-        grid-column: auto;
-      }
-
-      .department-card {
-        padding: 19px;
-      }
-
-      .info-row {
-        grid-template-columns: 92px 1fr;
-        gap: 10px;
-      }
-
-      .flow-item {
-        grid-template-columns: 48px 1fr;
-        gap: 13px;
-        padding: 18px;
-      }
-
-      .flow-number {
-        width: 38px;
-        height: 38px;
-        font-size: 0.85rem;
-      }
-
-      .apply-box {
-        padding: 30px 20px;
-      }
-
-      .apply-button {
-        width: 100%;
-        min-width: 0;
-      }
-    }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #eff6ff;
+  --accent: #f59e0b;
+  --bg: #ffffff;
+  --bg-card: #ffffff;
+  --bg-section: #f8fafc;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 10px;
+  --header-h: 60px;
+  --line: #06C755;
+  --line-dark: #00a644;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.container {
+  width: min(960px, 92%);
+  margin: 0 auto;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: min(1100px, 94%);
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.logo:hover {
+  color: var(--text);
+}
+
+.logo-block {
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.logo-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.menu-toggle {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+
+
+/* =========================
+   Side Menu
+========================= */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100vh;
+
+  background: #fff;
+  border-left: 1px solid var(--border);
+
+  z-index: 1100;
+  transition: right 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: -4px 0 20px rgba(0,0,0,0.06);
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 20px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-weight: 700;
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.side-menu-list {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.side-menu-list a {
+  display: block;
+  padding: 12px 24px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.side-menu-list a:hover {
+  background: var(--bg-section);
+  color: var(--primary);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.3);
+
+  z-index: 1050;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.25s;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================
+   Breadcrumb
+========================= */
+
+.breadcrumb {
+  margin-top: var(--header-h);
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+
+.breadcrumb-inner {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+
+  font-size: 0.8rem;
+  color: var(--text-muted);
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb-inner a {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.breadcrumb-inner a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb-inner .sep {
+  color: #cbd5e1;
+}
+
+.breadcrumb-inner .current {
+  color: var(--text);
+  font-weight: 600;
+}
+
+
+/* =========================
+   Page Hero
+========================= */
+
+.page-hero {
+  background: var(--bg-section);
+  padding: 40px 0 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero h1 {
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+.page-hero p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+
+/* =========================
+   Common Section
+========================= */
+
+.section {
+  padding: 56px 0;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  font-size: 0.95rem;
+}
+
+
+/* =========================
+   Recruitment Departments
+========================= */
+
+.department-grid {
+  max-width: 760px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.department-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  padding: 22px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.department-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.department-card.full {
+  grid-column: 1 / -1;
+}
+
+.department-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.department-name {
+  margin: 0;
+
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.status {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 9px;
+
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.status.open {
+  background: #eff6ff;
+  color: var(--primary);
+  border: 1px solid #dbeafe;
+}
+
+.status.closed {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.department-info {
+  display: grid;
+  gap: 13px;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+}
+
+.info-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.info-text {
+  margin: 0;
+  font-size: 0.84rem;
+}
+
+
+/* =========================
+   Recruitment Flow
+========================= */
+
+.flow-section {
+  background: var(--bg-section);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.flow {
+  max-width: 640px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.flow-item {
+  display: flex;
+  gap: 18px;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  padding: 22px;
+
+  align-items: flex-start;
+}
+
+.flow-number {
+  flex-shrink: 0;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+  color: #fff;
+
+  font-weight: 800;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flow-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.flow-body p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+
+/* =========================
+   Application Link
+========================= */
+
+.recruit-link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 10px;
+
+  padding: 7px 14px;
+
+  background: var(--primary-light);
+  border: 1px solid #dbeafe;
+  border-radius: 6px;
+
+  color: var(--primary);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+.recruit-link:hover {
+  background: #dbeafe;
+  color: var(--primary-dark);
+}
+
+
+/* =========================
+   Application Section
+========================= */
+
+.application-section {
+  background: #fff;
+}
+
+.application-box {
+  max-width: 640px;
+  margin: 0 auto;
+
+  background: #fff;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  padding: 34px 30px;
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.application-box::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: var(--primary);
+}
+
+.application-label {
+  display: block;
+
+  color: var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  margin-bottom: 6px;
+}
+
+.application-box h2 {
+  font-size: 1.35rem;
+  font-weight: 900;
+
+  margin-bottom: 8px;
+}
+
+.application-box p {
+  color: var(--text-muted);
+
+  font-size: 0.9rem;
+
+  margin-bottom: 24px;
+}
+
+.application-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-width: 230px;
+
+  padding: 12px 24px;
+
+  background: var(--primary);
+  color: #fff;
+
+  border-radius: 6px;
+
+  font-size: 0.92rem;
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+.application-button:hover {
+  background: var(--primary-dark);
+  color: #fff;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 6px 14px rgba(37,99,235,0.18);
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  text-align: center;
+}
+
+.footer-logo {
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+
+  .page-hero {
+    padding: 32px 0 28px;
+  }
+
+  .section {
+    padding: 44px 0;
+  }
+
+  .department-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department-card.full {
+    grid-column: auto;
+  }
+
+  .department-card {
+    padding: 18px;
+  }
+
+  .info-row {
+    grid-template-columns: 92px 1fr;
+    gap: 10px;
+  }
+
+  .flow-item {
+    padding: 18px 16px;
+    gap: 14px;
+  }
+
+  .flow-number {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .application-box {
+    padding: 30px 20px;
+  }
+
+  .application-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
   </style>
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header>
+  <!-- =========================
+       Header
+  ========================= -->
+
+  <header class="header">
     <div class="header-inner">
 
       <a href="index.html" class="logo">
-        <span class="logo-main">DOLDO SERVER</span>
-        <span class="logo-sub">【ドル鯖】</span>
+        <span class="logo-block">DOLDO SERVER</span>
+        <span class="logo-tag">【ドル鯖】</span>
       </a>
 
-      <button class="menu-button" id="menuButton" aria-label="メニュー">
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="メニューを開く"
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -627,64 +724,118 @@
   </header>
 
 
-  <!-- Overlay -->
-  <div class="menu-overlay" id="menuOverlay"></div>
+  <!-- =========================
+       Side Menu
+  ========================= -->
 
-
-  <!-- Side Menu -->
   <nav class="side-menu" id="sideMenu">
 
-    <ul>
+    <div class="side-menu-header">
+
+      <span>メニュー</span>
+
+      <button
+        class="menu-close"
+        id="menuClose"
+        aria-label="メニューを閉じる"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <ul class="side-menu-list">
+
       <li>
-        <a href="index.html">トップ</a>
+        <a href="index.html">
+          トップ
+        </a>
       </li>
 
       <li>
-        <a href="index.html#line">LINEオープンチャット</a>
+        <a href="index.html#line">
+          LINEオープンチャット
+        </a>
       </li>
 
       <li>
-        <a href="index.html#news">ニュース</a>
+        <a href="index.html#news">
+          ニュース
+        </a>
       </li>
 
       <li>
-        <a href="index.html#features">鯖の特徴</a>
+        <a href="index.html#features">
+          鯖の特徴
+        </a>
       </li>
 
       <li>
-        <a href="join.html">参加方法を確認</a>
+        <a href="join.html">
+          参加方法を確認
+        </a>
       </li>
 
       <li>
-        <a href="guidelines.html">利用規約 / ガイドライン</a>
+        <a href="guidelines.html">
+          利用規約 / ガイドライン
+        </a>
       </li>
 
       <li>
-        <a href="https://forms.gle/GoxPrE5DBtYSdn8e6"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+          href="https://forms.gle/GoxPrE5DBtYSdn8e6"
+          target="_blank"
+          rel="noopener"
+        >
           お問い合わせ
         </a>
       </li>
+      <li><a href="unei.html">運営採用</a></li>
+
     </ul>
 
   </nav>
 
+  <div class="menu-overlay" id="menuOverlay"></div>
 
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
+
+  <!-- =========================
+       Breadcrumb
+  ========================= -->
+
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+
     <div class="breadcrumb-inner">
-      トップ　&gt;　運営採用
+
+      <a href="index.html">
+        トップ
+      </a>
+
+      <span class="sep">
+        /
+      </span>
+
+      <span class="current">
+        運営採用
+      </span>
+
     </div>
-  </div>
+
+  </nav>
 
 
-  <!-- Hero -->
+  <!-- =========================
+       Hero
+  ========================= -->
+
   <section class="page-hero">
 
     <div class="container">
 
-      <h1>運営採用</h1>
+      <h1>
+        運営採用
+      </h1>
 
       <p>
         DOLDO SERVERを一緒に運営してくれるメンバーを募集しています。
@@ -695,465 +846,516 @@
   </section>
 
 
-  <!-- Departments -->
-  <main>
-
-    <section class="section">
-
-      <div class="container">
-
-        <h2 class="section-title">
-          募集中の部門
-        </h2>
-
-        <p class="section-lead">
-          各部門の仕事内容や必要なスキルをご確認ください。
-        </p>
-
-
-        <div class="department-grid">
-
-
-          <!-- 副主 -->
-          <div class="department-card">
-
-            <div class="department-top">
-
-              <h3 class="department-name">
-                副主
-              </h3>
-
-              <span class="status closed">
-                応募終了
-              </span>
-
-            </div>
-
-            <div class="department-info">
-
-              <div class="info-row">
-                <div class="info-label">
-                  必要スキル・資格
-                </div>
-
-                <p class="info-text">
-                  サーバー運営に関する知識・経験、責任感
-                </p>
-              </div>
-
-              <div class="info-row">
-                <div class="info-label">
-                  仕事内容
-                </div>
-
-                <p class="info-text">
-                  サーバー全体の運営補助、各部門の管理、運営方針の決定補助など
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- 総務部門 -->
-          <div class="department-card">
-
-            <div class="department-top">
-
-              <h3 class="department-name">
-                総務部門
-              </h3>
-
-              <span class="status open">
-                応募中
-              </span>
-
-            </div>
-
-            <div class="department-info">
-
-              <div class="info-row">
-                <div class="info-label">
-                  必要スキル・資格
-                </div>
-
-                <p class="info-text">
-                  コミュニケーション能力、整理・管理能力
-                </p>
-              </div>
-
-              <div class="info-row">
-                <div class="info-label">
-                  仕事内容
-                </div>
-
-                <p class="info-text">
-                  サーバー運営に関する事務作業、情報整理、各部門との連絡・調整など
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- コマンド部門 -->
-          <div class="department-card">
-
-            <div class="department-top">
-
-              <h3 class="department-name">
-                コマンド部門
-              </h3>
-
-              <span class="status open">
-                応募中
-              </span>
-
-            </div>
-
-            <div class="department-info">
-
-              <div class="info-row">
-                <div class="info-label">
-                  必要スキル・資格
-                </div>
-
-                <p class="info-text">
-                  Minecraftコマンドに関する知識・経験
-                </p>
-              </div>
-
-              <div class="info-row">
-                <div class="info-label">
-                  仕事内容
-                </div>
-
-                <p class="info-text">
-                  サーバー内で使用するコマンドの制作、新機能の開発、既存システムの改善など
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- コマンド補佐部門 -->
-          <div class="department-card">
-
-            <div class="department-top">
-
-              <h3 class="department-name">
-                コマンド補佐部門
-              </h3>
-
-              <span class="status open">
-                応募中
-              </span>
-
-            </div>
-
-            <div class="department-info">
-
-              <div class="info-row">
-                <div class="info-label">
-                  必要スキル・資格
-                </div>
-
-                <p class="info-text">
-                  Minecraftコマンドの基本知識、学習意欲
-                </p>
-              </div>
-
-              <div class="info-row">
-                <div class="info-label">
-                  仕事内容
-                </div>
-
-                <p class="info-text">
-                  コマンド部門の制作補助、動作確認、アイデア提案、テストなど
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- 人事部門 -->
-          <div class="department-card">
-
-            <div class="department-top">
-
-              <h3 class="department-name">
-                人事部門
-              </h3>
-
-              <span class="status open">
-                応募中
-              </span>
-
-            </div>
-
-            <div class="department-info">
-
-              <div class="info-row">
-                <div class="info-label">
-                  必要スキル・資格
-                </div>
-
-                <p class="info-text">
-                  コミュニケーション能力、判断力、責任感
-                </p>
-              </div>
-
-              <div class="info-row">
-                <div class="info-label">
-                  仕事内容
-                </div>
-
-                <p class="info-text">
-                  運営メンバーの募集・管理、応募者の確認、メンバーの配置や連絡など
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- 建築部門 -->
-          <div class="department-card">
-
-            <div class="department-top">
-
-              <h3 class="department-name">
-                建築部門
-              </h3>
-
-              <span class="status open">
-                応募中
-              </span>
-
-            </div>
-
-            <div class="department-info">
-
-              <div class="info-row">
-                <div class="info-label">
-                  必要スキル・資格
-                </div>
-
-                <p class="info-text">
-                  Minecraftでの建築経験・建築技術
-                </p>
-              </div>
-
-              <div class="info-row">
-                <div class="info-label">
-                  仕事内容
-                </div>
-
-                <p class="info-text">
-                  サーバー内の建築物、ロビー、施設、イベント会場などの制作
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- 宣伝部門 -->
-          <div class="department-card full">
-
-            <div class="department-top">
-
-              <h3 class="department-name">
-                宣伝部門
-              </h3>
-
-              <span class="status open">
-                応募中
-              </span>
-
-            </div>
-
-            <div class="department-info">
-
-              <div class="info-row">
-                <div class="info-label">
-                  必要スキル・資格
-                </div>
-
-                <p class="info-text">
-                  SNS・Webに関する基本的な知識、発信力
-                </p>
-              </div>
-
-              <div class="info-row">
-                <div class="info-label">
-                  仕事内容
-                </div>
-
-                <p class="info-text">
-                  サーバーの宣伝、イベント告知、WebサイトやSNSを利用した情報発信
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- Recruitment Flow -->
-    <section class="section flow-section">
-
-      <div class="container">
-
-        <h2 class="section-title">
-          採用段階
-        </h2>
-
-        <p class="section-lead">
-          応募から採用までは以下の流れで進みます。
-        </p>
-
-
-        <div class="flow">
-
-
-          <!-- Step 1 -->
-          <div class="flow-item">
-
-            <div class="flow-number">
-              1
-            </div>
-
-            <div class="flow-content">
-
-              <h3>
-                応募
-              </h3>
-
-              <p>
-                応募ページから必要事項を入力して応募します。
-              </p>
-
-              <!-- ここをGoogleフォームではなく下の応募欄へ移動 -->
-              <a href="#application" class="recruit-link">
-                こちらから応募 →
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <!-- Step 2 -->
-          <div class="flow-item">
-
-            <div class="flow-number">
-              2
-            </div>
-
-            <div class="flow-content">
-
-              <h3>
-                実技試験
-              </h3>
-
-              <p>
-                応募内容の確認後、通過した方にはマイクラ内にて実際に実技試験を行ってもらいます。
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- Step 3 -->
-          <div class="flow-item">
-
-            <div class="flow-number">
-              3
-            </div>
-
-            <div class="flow-content">
-
-              <h3>
-                採用
-              </h3>
-
-              <p>
-                実技試験を通過後、正式に運営メンバーとして採用されます。
-              </p>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- Application -->
-    <section class="section apply-section" id="application">
-
-      <div class="container">
-
-        <div class="apply-box">
-
-          <span class="apply-kicker">
-            運営メンバー募集
-          </span>
-
-          <h2>
-            応募はこちらから
-          </h2>
-
-          <p>
-            希望する部門を確認して、応募フォームへお進みください。
-          </p>
-
-          <a
-            class="apply-button"
-            href="https://forms.gle/8KsMGkqpE3rn6q8x6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            応募フォームを開く
-            <span>→</span>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- Footer -->
-  <footer>
+  <!-- =========================
+       Departments
+  ========================= -->
+
+  <section class="section">
 
     <div class="container">
 
-      <p class="footer-title">
+      <h2 class="section-title">
+        募集中の部門
+      </h2>
+
+      <p class="section-lead">
+        各部門の仕事内容や必要なスキルをご確認ください。
+      </p>
+
+
+      <div class="department-grid">
+
+
+        <!-- 副主 -->
+
+        <div class="department-card">
+
+          <div class="department-top">
+
+            <h3 class="department-name">
+              副主
+            </h3>
+
+            <span class="status closed">
+              応募終了
+            </span>
+
+          </div>
+
+          <div class="department-info">
+
+            <div class="info-row">
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
+              <p class="info-text">
+                サーバー運営に関する知識・経験、責任感
+              </p>
+
+            </div>
+
+            <div class="info-row">
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
+              <p class="info-text">
+                サーバー全体の運営補助、各部門の管理、運営方針の決定補助など
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 総務部門 -->
+
+        <div class="department-card">
+
+          <div class="department-top">
+
+            <h3 class="department-name">
+              総務部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
+          </div>
+
+          <div class="department-info">
+
+            <div class="info-row">
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
+              <p class="info-text">
+                コミュニケーション能力、整理・管理能力
+              </p>
+
+            </div>
+
+            <div class="info-row">
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
+              <p class="info-text">
+                サーバー運営に関する事務作業、情報整理、各部門との連絡・調整など
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- コマンド部門 -->
+
+        <div class="department-card">
+
+          <div class="department-top">
+
+            <h3 class="department-name">
+              コマンド部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
+          </div>
+
+          <div class="department-info">
+
+            <div class="info-row">
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
+              <p class="info-text">
+                Minecraftコマンドに関する知識・経験
+              </p>
+
+            </div>
+
+            <div class="info-row">
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
+              <p class="info-text">
+                サーバー内で使用するコマンドの制作、新機能の開発、既存システムの改善など
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- コマンド補佐部門 -->
+
+        <div class="department-card">
+
+          <div class="department-top">
+
+            <h3 class="department-name">
+              コマンド補佐部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
+          </div>
+
+          <div class="department-info">
+
+            <div class="info-row">
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
+              <p class="info-text">
+                Minecraftコマンドの基本知識、学習意欲
+              </p>
+
+            </div>
+
+            <div class="info-row">
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
+              <p class="info-text">
+                コマンド部門の制作補助、動作確認、アイデア提案、テストなど
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 人事部門 -->
+
+        <div class="department-card">
+
+          <div class="department-top">
+
+            <h3 class="department-name">
+              人事部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
+          </div>
+
+          <div class="department-info">
+
+            <div class="info-row">
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
+              <p class="info-text">
+                コミュニケーション能力、判断力、責任感
+              </p>
+
+            </div>
+
+            <div class="info-row">
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
+              <p class="info-text">
+                運営メンバーの募集・管理、応募者の確認、メンバーの配置や連絡など
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 建築部門 -->
+
+        <div class="department-card">
+
+          <div class="department-top">
+
+            <h3 class="department-name">
+              建築部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
+          </div>
+
+          <div class="department-info">
+
+            <div class="info-row">
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
+              <p class="info-text">
+                Minecraftでの建築経験・建築技術
+              </p>
+
+            </div>
+
+            <div class="info-row">
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
+              <p class="info-text">
+                サーバー内の建築物、ロビー、施設、イベント会場などの制作
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 宣伝部門 -->
+
+        <div class="department-card full">
+
+          <div class="department-top">
+
+            <h3 class="department-name">
+              宣伝部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
+          </div>
+
+          <div class="department-info">
+
+            <div class="info-row">
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
+              <p class="info-text">
+                SNS・Webに関する基本的な知識、発信力
+              </p>
+
+            </div>
+
+            <div class="info-row">
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
+              <p class="info-text">
+                サーバーの宣伝、イベント告知、WebサイトやSNSを利用した情報発信
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       Recruitment Flow
+  ========================= -->
+
+  <section class="section flow-section">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        採用段階
+      </h2>
+
+      <p class="section-lead">
+        応募から採用までは以下の流れで進みます。
+      </p>
+
+
+      <div class="flow">
+
+
+        <!-- 1 -->
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            1
+          </div>
+
+          <div class="flow-body">
+
+            <h3>
+              応募
+            </h3>
+
+            <p>
+              応募ページから必要事項を入力して応募します。
+            </p>
+
+            <!-- 下の応募欄へ移動 -->
+            <a
+              href="#application"
+              class="recruit-link"
+            >
+              こちらから応募 →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            2
+          </div>
+
+          <div class="flow-body">
+
+            <h3>
+              実技試験
+            </h3>
+
+            <p>
+              応募内容の確認後、通過した方にはマイクラ内にて実際に実技試験を行ってもらいます。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            3
+          </div>
+
+          <div class="flow-body">
+
+            <h3>
+              採用
+            </h3>
+
+            <p>
+              実技試験を通過後、正式に運営メンバーとして採用されます。
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       Application
+  ========================= -->
+
+  <section
+    class="section application-section"
+    id="application"
+  >
+
+    <div class="container">
+
+      <div class="application-box">
+
+        <span class="application-label">
+          運営メンバー募集
+        </span>
+
+        <h2>
+          応募はこちらから
+        </h2>
+
+        <p>
+          希望する部門を確認して、応募フォームへお進みください。
+        </p>
+
+        <a
+          href="https://forms.gle/8KsMGkqpE3rn6q8x6"
+          class="application-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          応募フォームを開く →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       Footer
+  ========================= -->
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <p class="footer-logo">
         DOLDO SERVER
       </p>
 
@@ -1166,30 +1368,42 @@
   </footer>
 
 
-  <!-- JavaScript -->
+  <!-- =========================
+       JavaScript
+  ========================= -->
+
   <script>
 
-    const menuButton = document.getElementById("menuButton");
-    const sideMenu = document.getElementById("sideMenu");
-    const menuOverlay = document.getElementById("menuOverlay");
+document.addEventListener("DOMContentLoaded", function() {
 
-    function openMenu() {
-      sideMenu.classList.add("active");
-      menuOverlay.classList.add("active");
-    }
+  const toggle = document.getElementById("menuToggle");
+  const closeBtn = document.getElementById("menuClose");
+  const menu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("menuOverlay");
 
-    function closeMenu() {
-      sideMenu.classList.remove("active");
-      menuOverlay.classList.remove("active");
-    }
+  function openMenu() {
+    menu.classList.add("open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
 
-    menuButton.addEventListener("click", openMenu);
+  function closeMenu() {
+    menu.classList.remove("open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
 
-    menuOverlay.addEventListener("click", closeMenu);
+  toggle.addEventListener("click", openMenu);
 
-    document.querySelectorAll(".side-menu a").forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
+  closeBtn.addEventListener("click", closeMenu);
+
+  overlay.addEventListener("click", closeMenu);
+
+  menu.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", closeMenu);
+  });
+
+});
 
   </script>
 

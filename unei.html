@@ -5,554 +5,638 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>運営採用 | DOLDO SERVER【ドル鯖】</title>
+  <meta name="description" content="DOLDO SERVER（ドル鯖）の運営採用ページ。各部門の仕事内容や必要スキル、採用までの流れをご確認いただけます。">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --accent: #f59e0b;
-      --bg: #ffffff;
-      --bg-section: #f8fafc;
-      --text: #1e293b;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --radius: 10px;
-      --header-height: 60px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Noto Sans JP", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.8;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    .container {
-      width: min(1100px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--header-height);
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-      backdrop-filter: blur(8px);
-    }
-
-    .header-inner {
-      width: min(1100px, calc(100% - 40px));
-      height: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-weight: 700;
-    }
-
-    .logo-block {
-      font-size: 1rem;
-      letter-spacing: .02em;
-    }
-
-    .logo-tag {
-      font-size: .72rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .menu-toggle {
-      width: 42px;
-      height: 42px;
-      border: 0;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-    }
-
-    /* =========================
-       SIDE MENU
-    ========================= */
-
-    .side-menu {
-      position: fixed;
-      top: 0;
-      right: -330px;
-      width: min(330px, 88vw);
-      height: 100vh;
-      background: #fff;
-      border-left: 1px solid var(--border);
-      z-index: 1100;
-      transition: right .28s ease;
-      box-shadow: -10px 0 30px rgba(15,23,42,.08);
-    }
-
-    .side-menu.open {
-      right: 0;
-    }
-
-    .side-menu-header {
-      height: var(--header-height);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      border-bottom: 1px solid var(--border);
-      font-weight: 700;
-    }
-
-    .menu-close {
-      border: 0;
-      background: transparent;
-      font-size: 1.7rem;
-      color: var(--muted);
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    .side-menu-list {
-      list-style: none;
-      padding: 12px 0;
-    }
-
-    .side-menu-list li a {
-      display: block;
-      padding: 14px 22px;
-      font-size: .92rem;
-      border-bottom: 1px solid #f1f5f9;
-      transition: background .2s, color .2s;
-    }
-
-    .side-menu-list li a:hover {
-      background: var(--bg-section);
-      color: var(--primary);
-    }
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15,23,42,.38);
-      z-index: 1050;
-      opacity: 0;
-      visibility: hidden;
-      transition: .25s;
-    }
-
-    .menu-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* =========================
-       PAGE HERO
-    ========================= */
-
-    .page-hero {
-      padding: 120px 0 55px;
-      background: var(--bg-section);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .breadcrumb {
-      margin-bottom: 22px;
-      font-size: .8rem;
-      color: var(--muted);
-    }
-
-    .breadcrumb a:hover {
-      color: var(--primary);
-    }
-
-    .page-label {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-    }
-
-    .page-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.3;
-      letter-spacing: -.03em;
-      margin-bottom: 14px;
-    }
-
-    .page-lead {
-      color: var(--muted);
-      font-size: .95rem;
-      max-width: 700px;
-    }
-
-    /* =========================
-       COMMON SECTION
-    ========================= */
-
-    .section {
-      padding: 75px 0;
-    }
-
-    .section:nth-of-type(even) {
-      background: var(--bg-section);
-    }
-
-    .section-heading {
-      margin-bottom: 38px;
-    }
-
-    .section-title {
-      font-size: 1.65rem;
-      line-height: 1.4;
-      margin-bottom: 8px;
-      letter-spacing: -.02em;
-    }
-
-    .section-lead {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    /* =========================
-       DEPARTMENT
-    ========================= */
-
-    .department-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .department-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 26px;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-
-    .department-card:hover {
-      transform: translateY(-3px);
-      border-color: #cbd5e1;
-      box-shadow: 0 10px 28px rgba(15,23,42,.06);
-    }
-
-    .department-card.full {
-      grid-column: 1 / -1;
-    }
-
-    .department-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 22px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .department-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .status {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: .72rem;
-      font-weight: 700;
-    }
-
-    .status.open {
-      color: #166534;
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-    }
-
-    .status.closed {
-      color: #64748b;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
-
-    .department-info {
-      display: grid;
-      gap: 18px;
-    }
-
-    .info-row {
-      display: grid;
-      grid-template-columns: 135px 1fr;
-      gap: 18px;
-    }
-
-    .info-label {
-      font-size: .78rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .info-text {
-      font-size: .88rem;
-    }
-
-    /* =========================
-       RECRUITMENT FLOW
-    ========================= */
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      position: relative;
-    }
-
-    .flow-item {
-      position: relative;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-    }
-
-    .flow-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      margin-bottom: 17px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    .flow-title {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .flow-text {
-      color: var(--muted);
-      font-size: .84rem;
-    }
-
-    .flow-link {
-      display: inline-flex;
-      margin-top: 13px;
-      color: var(--primary);
-      font-size: .84rem;
-      font-weight: 700;
-      border-bottom: 1px solid transparent;
-      transition: border-color .2s;
-    }
-
-    .flow-link:hover {
-      border-color: var(--primary);
-    }
-
-    /* =========================
-       APPLY
-    ========================= */
-
-    .apply-section {
-      padding: 80px 0;
-      background: #fff;
-    }
-
-    .apply-box {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--bg-section);
-      padding: 45px 40px;
-      text-align: center;
-    }
-
-    .apply-box::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--primary);
-    }
-
-    .apply-label {
-      color: var(--primary);
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      margin-bottom: 9px;
-    }
-
-    .apply-title {
-      font-size: 1.55rem;
-      margin-bottom: 10px;
-    }
-
-    .apply-text {
-      color: var(--muted);
-      font-size: .88rem;
-      margin-bottom: 27px;
-    }
-
-    .apply-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      min-width: 260px;
-      padding: 14px 25px;
-      border-radius: 6px;
-      background: var(--primary);
-      color: #fff;
-      font-size: .9rem;
-      font-weight: 700;
-      border: 1px solid var(--primary);
-      transition: background .2s, transform .2s, box-shadow .2s;
-    }
-
-    .apply-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(37,99,235,.18);
-    }
-
-    .apply-arrow {
-      font-size: 1.1rem;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    .footer {
-      padding: 42px 0;
-      background: #0f172a;
-      color: #fff;
-      text-align: center;
-    }
-
-    .footer-logo {
-      font-weight: 700;
-      letter-spacing: .03em;
-      margin-bottom: 5px;
-    }
-
-    .footer-copy {
-      color: #94a3b8;
-      font-size: .72rem;
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 700px) {
-      .container,
-      .header-inner {
-        width: min(100% - 28px, 1100px);
-      }
-
-      .page-hero {
-        padding: 105px 0 45px;
-      }
-
-      .section {
-        padding: 55px 0;
-      }
-
-      .department-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .department-card.full {
-        grid-column: auto;
-      }
-
-      .department-card {
-        padding: 22px;
-      }
-
-      .info-row {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-
-      .flow {
-        grid-template-columns: 1fr;
-      }
-
-      .apply-section {
-        padding: 55px 0;
-      }
-
-      .apply-box {
-        padding: 38px 20px;
-      }
-
-      .apply-button {
-        width: 100%;
-        min-width: 0;
-      }
-    }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #eff6ff;
+  --accent: #f59e0b;
+  --bg: #ffffff;
+  --bg-card: #ffffff;
+  --bg-section: #f8fafc;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 10px;
+  --header-h: 60px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.container {
+  width: min(960px, 92%);
+  margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: min(1100px, 94%);
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.logo:hover {
+  color: var(--text);
+}
+
+.logo-block {
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.logo-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.menu-toggle {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+
+
+/* =========================
+   SIDE MENU
+========================= */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  border-left: 1px solid var(--border);
+  z-index: 1100;
+  transition: right 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.06);
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.side-menu-list {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.side-menu-list a {
+  display: block;
+  padding: 12px 24px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.side-menu-list a:hover {
+  background: var(--bg-section);
+  color: var(--primary);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+  margin-top: var(--header-h);
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+
+.breadcrumb-inner {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb-inner a {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.breadcrumb-inner a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb-inner .sep {
+  color: #cbd5e1;
+}
+
+.breadcrumb-inner .current {
+  color: var(--text);
+  font-weight: 600;
+}
+
+
+/* =========================
+   PAGE HERO
+========================= */
+
+.page-hero {
+  background: var(--bg-section);
+  padding: 40px 0 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero h1 {
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+.page-hero p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.section {
+  padding: 56px 0;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  font-size: 0.95rem;
+}
+
+
+/* =========================
+   DEPARTMENT
+========================= */
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.department-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+
+.department-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.05);
+  transform: translateY(-2px);
+}
+
+.department-card.full {
+  grid-column: 1 / -1;
+}
+
+.department-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.department-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.status {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 9px;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.status.open {
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.status.closed {
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.department-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 16px;
+}
+
+.info-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   RECRUITMENT FLOW
+========================= */
+
+.recruit-flow {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recruit-step {
+  display: flex;
+  gap: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  align-items: flex-start;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.recruit-step:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.04);
+}
+
+.recruit-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recruit-body {
+  min-width: 0;
+}
+
+.recruit-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.recruit-body p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.recruit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 9px;
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-bottom: 1px solid transparent;
+}
+
+.recruit-link:hover {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary-dark);
+}
+
+
+/* =========================
+   APPLY
+========================= */
+
+.apply-section {
+  background: var(--bg-section);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 0;
+}
+
+.apply-box {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 34px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-box::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: var(--primary);
+}
+
+.apply-label {
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+
+.apply-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.apply-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.apply-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 230px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: 1px solid var(--primary);
+  transition: 0.2s;
+}
+
+.apply-button:hover {
+  background: var(--primary-dark);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.16);
+}
+
+.apply-arrow {
+  font-size: 1rem;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  text-align: center;
+}
+
+.footer-logo {
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  .page-hero {
+    padding: 32px 0 28px;
+  }
+
+  .section {
+    padding: 44px 0;
+  }
+
+  .department-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .department-card.full {
+    grid-column: auto;
+  }
+
+  .department-card {
+    padding: 18px 16px;
+  }
+
+  .department-top {
+    margin-bottom: 16px;
+  }
+
+  .info-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .recruit-step {
+    padding: 18px 16px;
+    gap: 14px;
+  }
+
+  .recruit-num {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .apply-box {
+    padding: 30px 18px;
+  }
+
+  .apply-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
   </style>
 </head>
 
@@ -564,38 +648,84 @@
 
   <header class="header">
     <div class="header-inner">
+
       <a href="index.html" class="logo">
         <span class="logo-block">DOLDO SERVER</span>
         <span class="logo-tag">【ドル鯖】</span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="メニューを開く"
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
+
     </div>
   </header>
+
 
   <!-- =========================
        SIDE MENU
   ========================= -->
 
   <nav class="side-menu" id="sideMenu">
+
     <div class="side-menu-header">
       <span>メニュー</span>
-      <button class="menu-close" id="menuClose" aria-label="メニューを閉じる">×</button>
+
+      <button
+        class="menu-close"
+        id="menuClose"
+        aria-label="メニューを閉じる"
+      >
+        ×
+      </button>
     </div>
 
     <ul class="side-menu-list">
-      <li><a href="index.html#hero">トップ</a></li>
-      <li><a href="index.html#openchat">オープンチャット</a></li>
-      <li><a href="index.html#news">ニュース</a></li>
-      <li><a href="index.html#features">鯖の特徴</a></li>
-      <li><a href="join.html">参加方法を確認</a></li>
-      <li><a href="guidelines.html">利用規約 / ガイドライン</a></li>
-      <li><a href="contact.html">お問い合わせ</a></li>
-      <li><a href="unei.html">運営採用</a></li>
+
+      <li>
+        <a href="index.html">トップ</a>
+      </li>
+
+      <li>
+        <a href="index.html#line">LINEオープンチャット</a>
+      </li>
+
+      <li>
+        <a href="index.html#news">ニュース</a>
+      </li>
+
+      <li>
+        <a href="index.html#features">鯖の特徴</a>
+      </li>
+
+      <li>
+        <a href="join.html">参加方法を確認</a>
+      </li>
+
+      <li>
+        <a href="guidelines.html">利用規約 / ガイドライン</a>
+      </li>
+
+      <li>
+        <a
+          href="https://forms.gle/GoxPrE5DBtYSdn8e6"
+          target="_blank"
+          rel="noopener"
+        >
+          お問い合わせ
+        </a>
+      </li>
+
+      <li>
+        <a href="unei.html">運営採用</a>
+      </li>
+
     </ul>
   </nav>
 
@@ -603,28 +733,40 @@
 
 
   <!-- =========================
+       BREADCRUMB
+  ========================= -->
+
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+
+    <div class="breadcrumb-inner">
+
+      <a href="index.html">トップ</a>
+
+      <span class="sep">/</span>
+
+      <span class="current">運営採用</span>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
        PAGE HERO
   ========================= -->
 
   <section class="page-hero">
+
     <div class="container">
 
-      <div class="breadcrumb">
-        <a href="index.html">トップ</a>
-        <span> / </span>
-        <span>運営採用</span>
-      </div>
+      <h1>運営採用</h1>
 
-      <span class="page-label">RECRUITMENT</span>
-
-      <h1 class="page-title">運営採用</h1>
-
-      <p class="page-lead">
+      <p>
         DOLDO SERVERを一緒に運営してくれるメンバーを募集しています。
-        興味のある部門がありましたら、ぜひご応募ください。
       </p>
 
     </div>
+
   </section>
 
 
@@ -633,41 +775,61 @@
   ========================= -->
 
   <section class="section">
+
     <div class="container">
 
-      <div class="section-heading">
-        <h2 class="section-title">募集部門</h2>
-        <p class="section-lead">
-          各部門の仕事内容・必要スキル・現在の募集状況をご確認ください。
-        </p>
-      </div>
+      <h2 class="section-title">募集部門</h2>
+
+      <p class="section-lead">
+        各部門の仕事内容や必要スキルをご確認ください。
+      </p>
 
 
       <div class="department-grid">
+
 
         <!-- 副主 -->
 
         <article class="department-card">
 
           <div class="department-top">
-            <h3 class="department-name">副主</h3>
-            <span class="status closed">応募終了</span>
+
+            <h3 class="department-name">
+              副主
+            </h3>
+
+            <span class="status closed">
+              応募終了
+            </span>
+
           </div>
+
 
           <div class="department-info">
 
             <div class="info-row">
-              <div class="info-label">必要スキル・資格</div>
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
               <div class="info-text">
                 サーバー運営に関する知識・経験、責任感
               </div>
+
             </div>
 
+
             <div class="info-row">
-              <div class="info-label">仕事内容</div>
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
               <div class="info-text">
                 サーバー全体の運営補助、各部門の管理、運営方針の決定補助など
               </div>
+
             </div>
 
           </div>
@@ -680,24 +842,43 @@
         <article class="department-card">
 
           <div class="department-top">
-            <h3 class="department-name">総務部門</h3>
-            <span class="status open">応募中</span>
+
+            <h3 class="department-name">
+              総務部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
           </div>
+
 
           <div class="department-info">
 
             <div class="info-row">
-              <div class="info-label">必要スキル・資格</div>
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
               <div class="info-text">
                 コミュニケーション能力、整理・管理能力
               </div>
+
             </div>
 
+
             <div class="info-row">
-              <div class="info-label">仕事内容</div>
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
               <div class="info-text">
                 サーバー運営に関する事務作業、情報整理、各部門との連絡・調整など
               </div>
+
             </div>
 
           </div>
@@ -710,24 +891,43 @@
         <article class="department-card">
 
           <div class="department-top">
-            <h3 class="department-name">コマンド部門</h3>
-            <span class="status open">応募中</span>
+
+            <h3 class="department-name">
+              コマンド部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
           </div>
+
 
           <div class="department-info">
 
             <div class="info-row">
-              <div class="info-label">必要スキル・資格</div>
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
               <div class="info-text">
                 Minecraftコマンドに関する知識・経験
               </div>
+
             </div>
 
+
             <div class="info-row">
-              <div class="info-label">仕事内容</div>
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
               <div class="info-text">
                 サーバー内で使用するコマンドの制作、新機能の開発、既存システムの改善など
               </div>
+
             </div>
 
           </div>
@@ -740,24 +940,43 @@
         <article class="department-card">
 
           <div class="department-top">
-            <h3 class="department-name">コマンド補佐部門</h3>
-            <span class="status open">応募中</span>
+
+            <h3 class="department-name">
+              コマンド補佐部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
           </div>
+
 
           <div class="department-info">
 
             <div class="info-row">
-              <div class="info-label">必要スキル・資格</div>
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
               <div class="info-text">
                 Minecraftコマンドの基本知識、学習意欲
               </div>
+
             </div>
 
+
             <div class="info-row">
-              <div class="info-label">仕事内容</div>
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
               <div class="info-text">
                 コマンド部門の制作補助、動作確認、アイデア提案、テストなど
               </div>
+
             </div>
 
           </div>
@@ -770,24 +989,43 @@
         <article class="department-card">
 
           <div class="department-top">
-            <h3 class="department-name">人事部門</h3>
-            <span class="status open">応募中</span>
+
+            <h3 class="department-name">
+              人事部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
           </div>
+
 
           <div class="department-info">
 
             <div class="info-row">
-              <div class="info-label">必要スキル・資格</div>
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
               <div class="info-text">
                 コミュニケーション能力、判断力、責任感
               </div>
+
             </div>
 
+
             <div class="info-row">
-              <div class="info-label">仕事内容</div>
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
               <div class="info-text">
                 運営メンバーの募集・管理、応募者の確認、メンバーの配置や連絡など
               </div>
+
             </div>
 
           </div>
@@ -800,24 +1038,43 @@
         <article class="department-card">
 
           <div class="department-top">
-            <h3 class="department-name">建築部門</h3>
-            <span class="status open">応募中</span>
+
+            <h3 class="department-name">
+              建築部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
           </div>
+
 
           <div class="department-info">
 
             <div class="info-row">
-              <div class="info-label">必要スキル・資格</div>
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
               <div class="info-text">
                 Minecraftでの建築経験・建築技術
               </div>
+
             </div>
 
+
             <div class="info-row">
-              <div class="info-label">仕事内容</div>
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
               <div class="info-text">
                 サーバー内の建築物、ロビー、施設、イベント会場などの制作
               </div>
+
             </div>
 
           </div>
@@ -830,33 +1087,54 @@
         <article class="department-card full">
 
           <div class="department-top">
-            <h3 class="department-name">宣伝部門</h3>
-            <span class="status open">応募中</span>
+
+            <h3 class="department-name">
+              宣伝部門
+            </h3>
+
+            <span class="status open">
+              応募中
+            </span>
+
           </div>
+
 
           <div class="department-info">
 
             <div class="info-row">
-              <div class="info-label">必要スキル・資格</div>
+
+              <div class="info-label">
+                必要スキル・資格
+              </div>
+
               <div class="info-text">
                 SNS・Webに関する基本的な知識、発信力
               </div>
+
             </div>
 
+
             <div class="info-row">
-              <div class="info-label">仕事内容</div>
+
+              <div class="info-label">
+                仕事内容
+              </div>
+
               <div class="info-text">
                 サーバーの宣伝、イベント告知、WebサイトやSNSを利用した情報発信
               </div>
+
             </div>
 
           </div>
 
         </article>
 
+
       </div>
 
     </div>
+
   </section>
 
 
@@ -864,80 +1142,112 @@
        RECRUITMENT FLOW
   ========================= -->
 
-  <section class="section">
+  <section
+    class="section"
+    style="background: var(--bg-section); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);"
+  >
+
     <div class="container">
 
-      <div class="section-heading">
-        <h2 class="section-title">採用段階</h2>
-        <p class="section-lead">
-          応募から採用までは以下の流れで進みます。
-        </p>
-      </div>
+      <h2 class="section-title">
+        採用段階
+      </h2>
+
+      <p class="section-lead">
+        応募から採用までは以下の流れで進みます。
+      </p>
 
 
-      <div class="flow">
+      <div class="recruit-flow">
+
 
         <!-- 1 -->
 
-        <article class="flow-item">
+        <div class="recruit-step">
 
-          <div class="flow-number">1</div>
+          <div class="recruit-num">
+            1
+          </div>
 
-          <h3 class="flow-title">応募</h3>
+          <div class="recruit-body">
 
-          <p class="flow-text">
-            応募ページから必要事項を入力して応募します。
-          </p>
+            <h3>
+              応募
+            </h3>
 
-          <a
-            href="https://forms.gle/8KsMGkqpE3rn6q8x6"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flow-link"
-          >
-            こちらから応募 →
-          </a>
+            <p>
+              応募ページから必要事項を入力して応募します。
+            </p>
 
-        </article>
+            <a
+              href="https://forms.gle/8KsMGkqpE3rn6q8x6"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="recruit-link"
+            >
+              こちらから応募 →
+            </a>
+
+          </div>
+
+        </div>
 
 
         <!-- 2 -->
 
-        <article class="flow-item">
+        <div class="recruit-step">
 
-          <div class="flow-number">2</div>
+          <div class="recruit-num">
+            2
+          </div>
 
-          <h3 class="flow-title">実技試験</h3>
+          <div class="recruit-body">
 
-          <p class="flow-text">
-            応募内容の確認後、通過した方にはマイクラ内にて実際に実技試験を行ってもらいます。
-          </p>
+            <h3>
+              実技試験
+            </h3>
 
-        </article>
+            <p>
+              応募内容の確認後、通過した方にはマイクラ内にて実際に実技試験を行ってもらいます。
+            </p>
+
+          </div>
+
+        </div>
 
 
         <!-- 3 -->
 
-        <article class="flow-item">
+        <div class="recruit-step">
 
-          <div class="flow-number">3</div>
+          <div class="recruit-num">
+            3
+          </div>
 
-          <h3 class="flow-title">採用</h3>
+          <div class="recruit-body">
 
-          <p class="flow-text">
-            実技試験を通過した方が、正式に運営メンバーとして採用されます。
-          </p>
+            <h3>
+              採用
+            </h3>
 
-        </article>
+            <p>
+              実技試験を通過後、正式に運営メンバーとして採用されます。
+            </p>
+
+          </div>
+
+        </div>
+
 
       </div>
 
     </div>
+
   </section>
 
 
   <!-- =========================
-       APPLY CTA
+       APPLY
   ========================= -->
 
   <section class="apply-section">
@@ -946,10 +1256,12 @@
 
       <div class="apply-box">
 
-        <p class="apply-label">JOIN OUR TEAM</p>
+        <div class="apply-label">
+          RECRUITMENT
+        </div>
 
         <h2 class="apply-title">
-          DOLDO SERVERの運営に参加しませんか？
+          運営メンバーに応募する
         </h2>
 
         <p class="apply-text">
@@ -978,10 +1290,19 @@
   ========================= -->
 
   <footer class="footer">
+
     <div class="container">
-      <p class="footer-logo">DOLDO SERVER</p>
-      <p class="footer-copy">&copy; 2026 DOLDO SERVER 【ドル鯖】</p>
+
+      <p class="footer-logo">
+        DOLDO SERVER
+      </p>
+
+      <p class="footer-copy">
+        &copy; 2026 DOLDO SERVER 【ドル鯖】
+      </p>
+
     </div>
+
   </footer>
 
 
@@ -990,42 +1311,42 @@
   ========================= -->
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      initMenu();
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  initMenu();
+});
 
-    function initMenu() {
-      const toggle = document.getElementById("menuToggle");
-      const closeBtn = document.getElementById("menuClose");
-      const menu = document.getElementById("sideMenu");
-      const overlay = document.getElementById("menuOverlay");
+function initMenu() {
+  var toggle = document.getElementById("menuToggle");
+  var closeBtn = document.getElementById("menuClose");
+  var menu = document.getElementById("sideMenu");
+  var overlay = document.getElementById("menuOverlay");
 
-      if (!toggle || !menu || !overlay) return;
+  if (!toggle || !menu || !overlay) return;
 
-      function openMenu() {
-        menu.classList.add("open");
-        overlay.classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
+  function open() {
+    menu.classList.add("open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
 
-      function closeMenu() {
-        menu.classList.remove("open");
-        overlay.classList.remove("open");
-        document.body.style.overflow = "";
-      }
+  function close() {
+    menu.classList.remove("open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
 
-      toggle.addEventListener("click", openMenu);
+  toggle.addEventListener("click", open);
 
-      if (closeBtn) {
-        closeBtn.addEventListener("click", closeMenu);
-      }
+  if (closeBtn) {
+    closeBtn.addEventListener("click", close);
+  }
 
-      overlay.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", close);
 
-      menu.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", closeMenu);
-      });
-    }
+  menu.querySelectorAll("a").forEach(function(a) {
+    a.addEventListener("click", close);
+  });
+}
   </script>
 
 </body>

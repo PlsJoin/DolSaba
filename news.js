@@ -2,7 +2,7 @@ const newsData = [
   {
     id: 1,
     date: "2026-08-25",
-    title: "公式サイトを公開しました",
+    title: "公式サイト公開しました",
     excerpt: "DOLDO SERVER（ドル鯖）の公式ページを公開しました。参加方法やルールはこちらから確認できます。",
     important: true
   },
